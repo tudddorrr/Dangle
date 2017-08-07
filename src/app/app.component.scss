@@ -1,0 +1,42 @@
+h2 {
+    text-transform: uppercase;
+}
+
+#intro {
+    font-size: 1.25rem;
+    color: gray;
+}
+
+#add {
+    bottom: 12px;
+    left: 12px;
+    position: fixed;
+}
+
+#searchbox {
+    text-align: center;
+    padding: 1em;
+}
+
+#search {
+    display: block;
+    padding: 1em;
+}
+
+#cards {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.game-name {
+    text-align: center;
+}
+
+.card-title {
+    position: absolute;
+    top: 0.5em;
+    left: 0.5em;
+    width: 100%;
+    font-weight: bold;
+    color: #fff;
+}

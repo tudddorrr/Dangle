@@ -1,0 +1,73 @@
+@import url('~https://fonts.googleapis.com/icon?family=Material+Icons');
+@import '~@angular/material/theming';
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue.
+$dangle-primary: mat-palette($mat-pink, 500, 50);
+$dangle-accent: mat-palette($mat-grey, 900, 200);
+$dangle-warn: mat-palette($mat-pink);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$dangle-theme: mat-light-theme($dangle-primary, $dangle-accent, $dangle-warn);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($dangle-theme);
+
+body {
+    background: mat-color($dangle-accent, lighter);
+    margin: 0;
+    font-family: Roboto, sans-serif;
+}
+
+md-card {
+    $width: 320px;
+
+    min-width: $width;
+    max-width: $width;
+    margin: 1em auto;
+    background: mat-color($dangle-accent) !important;
+}
+
+md-card-header {
+    text-align: left;
+}
+
+md-card-content {
+    margin: 0 !important;
+    color: mat-color($dangle-accent, lighter);
+
+    p {
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+}
+
+md-toolbar-row {
+    justify-content: space-between;
+}
+
+button {
+    text-transform: uppercase;
+}
+
+md-chip {
+    max-width: 20%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    opacity: 0.8;
+}
+
+#app-title {
+    margin: 0 auto;
+}

@@ -1,0 +1,30 @@
+{
+  "name": "dangle-api",
+  "version": "1.0.0",
+  "description": "API for Dangle",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "cors": "^2.8.3",
+    "express": "^4.15.2",
+    "image-resolver": "^0.5.4",
+    "lowdb": "^0.16.2",
+    "nodemon": "^1.11.0",
+    "uuid": "^3.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js --ignore db.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sekaru/HolidayApp.git"
+  },
+  "author": "Tudor Sandulescu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sekaru/HolidayApp/issues"
+  },
+  "homepage": "https://github.com/sekaru/HolidayApp#readme"
+}
