@@ -135,6 +135,17 @@
         "lo",
         "you"
       ]
+    },
+    {
+      "uuid": "fd2ef0a6-4f02-43dc-b05c-8247a1fd67ad",
+      "name": "shattered11",
+      "image": "https://unsplash.it/1280/720?image=64",
+      "link": "http://sleepystudios.net/shattered",
+      "platforms": [
+        "windows",
+        "mac",
+        "linux"
+      ]
     }
   ],
   "tags": [],

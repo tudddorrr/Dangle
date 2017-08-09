@@ -8,10 +8,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from '@angular/material';
 import 'hammerjs';
 import { ApiService } from './api.service';
+import { NewGameComponent } from './new-game/new-game.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NewGameComponent
   ],
   imports: [
     BrowserModule,
@@ -19,6 +21,9 @@ import { ApiService } from './api.service';
     HttpModule,
     MaterialModule,
     BrowserAnimationsModule
+  ],
+  entryComponents: [
+    NewGameComponent
   ],
   providers: [ApiService],
   bootstrap: [AppComponent]
