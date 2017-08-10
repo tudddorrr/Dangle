@@ -38,7 +38,6 @@ export class AppComponent {
   }
 
   openDialog() {
-    console.log('hi');
     let dialogRef = this.dialog.open(NewGameComponent);
     dialogRef.afterClosed().subscribe(result => {
       console.log(result);

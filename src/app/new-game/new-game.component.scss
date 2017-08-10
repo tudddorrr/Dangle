@@ -1,5 +1,15 @@
+$width: 30vw;
+
 md-input-container {
-    min-width: 30vw;
+    min-width: $width;
+}
+
+md-checkbox {
+    margin-right: 1em;
+}
+
+#tags {
+    max-width: $width;
 }
 
 #buttonGroup {

@@ -71,3 +71,10 @@ md-chip {
 #app-title {
     margin: 0 auto;
 }
+
+.removeTag {
+    cursor: pointer;
+    float: right;
+    margin-left: 1em;
+    color: mat-color($dangle-primary)
+}

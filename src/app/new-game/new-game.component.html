@@ -1,35 +1,47 @@
 <h2>New Game</h2>
 
-<md-input-container>
-  <input mdInput placeholder="Name" />
-</md-input-container>
-<md-divider></md-divider>
+<md-dialog-content>
+  <md-input-container>
+    <input [(ngModel)]="name" mdInput placeholder="Name" />
+  </md-input-container>
+  <md-divider></md-divider>
 
-<h3 md-subheader>Link</h3>
-<md-input-container>
-  <input mdInput placeholder="Add a download URL for this game" />
-</md-input-container>
-<md-divider></md-divider>
+  <h3 md-subheader>Link</h3>
+  <md-input-container>
+    <input [(ngModel)]="link" mdInput placeholder="Add a download URL for this game" />
+  </md-input-container>
+  <md-divider></md-divider>
 
-<h3 md-subheader>Description</h3>
-<md-input-container>
-  <textarea mdInput placeholder="Describe this game"></textarea>
-</md-input-container>
-<md-divider></md-divider>
+  <h3 md-subheader>Banner image</h3>
+  <md-input-container>
+    <input [(ngModel)]="image" mdInput placeholder="Choose an image URL to use for this game" />
+  </md-input-container>
+  <md-divider></md-divider>
 
-<h3 md-subheader>Tags</h3>
-<md-input-container>
-  <input mdInput placeholder="Separate each tag with a comma" />
-</md-input-container>
+  <h3 md-subheader>Description</h3>
+  <md-input-container>
+    <textarea [(ngModel)]="desc" mdInput placeholder="Describe this game"></textarea>
+  </md-input-container>
+  <md-divider></md-divider>
 
-<h3 md-subheader>Platforms</h3>
-<md-checkbox>Windows</md-checkbox>
-<md-checkbox>Mac</md-checkbox>
-<md-checkbox>Linux</md-checkbox>
-<md-divider></md-divider>
+  <h3 md-subheader>Tags</h3>
+  <md-input-container>
+    <input mdInput [(ngModel)]="tagInput" (keyup.enter)="addTag()" placeholder="Press enter to add a tag" />
+  </md-input-container>
+  <div id=tags>
+    <md-chip-list>
+      <md-chip *ngFor="let tag of tags" color="accent" selected="true">{{tag | lowercase}} 
+        <span class="removeTag" (click)="removeTag(tag)">x</span>
+      </md-chip>
+    </md-chip-list>
+  </div>
 
-<br><br>
+  <h3 md-subheader>Platforms</h3>
+  <md-checkbox *ngFor="let name of platformNames; let i = index" [checked]="platforms[i]" (change)="platforms[i] = !platforms[i]">{{name}}</md-checkbox>
+  <md-divider></md-divider>
+</md-dialog-content>
+
 <div id="buttonGroup">
-  <button md-button>Add Game</button>
+  <button (click)="addGame()" md-button>Add Game</button>
   <button md-button>Cancel</button>
 </div>
