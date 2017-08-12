@@ -4,6 +4,8 @@ var bodyParser = require('body-parser');
 var low = require('lowdb');
 var ImageResolver = require('image-resolver');
 const uuid = require('uuid');
+const isUrl = require('is-url');
+var _ = require('lodash');
 var app = express();
 
 app.use(bodyParser.json());
@@ -13,9 +15,9 @@ var whitelist = [
 ];
 
 var corsOptions = {
-  origin: function(origin, callback){
-        var isWhitelisted = whitelist.indexOf(origin) !== -1;
-        callback(null, isWhitelisted);
+  origin: function (origin, callback) {
+    var isWhitelisted = whitelist.indexOf(origin) !== -1;
+    callback(null, isWhitelisted);
   },
   credentials: true
 }
@@ -28,7 +30,7 @@ var server = app.listen(4040, "0.0.0.0", function () {
 
 // set defaults
 var db = low('db.json');
-db.defaults({ games: [], tags: [], events: [] }) 
+db.defaults({ games: [], tags: [], events: [] })
   .write();
 
 // getting games
@@ -36,34 +38,47 @@ app.get('/games', function (req, res) {
   return res.json(db.get('games').value());
 });
 
+// getting a game
+app.get('/game', function (req, res) {
+  return res.json(db.get('games').find({id: req.query.id}));
+});
+
 // adding a game
-app.post('/games', function (req, res) {
-  if(!req.body.name || !req.body.link) {
-    return res.json({resp: false, err: 'err_missing_details', msg: 'You haven\'t filled in all the required fields'})
+app.post('/game', function (req, res) {
+  if (!req.body.name || !req.body.link || !req.body.desc) {
+    return res.json({ success: false, err: 'err_missing_details', msg: 'You haven\'t filled in all the required fields' })
+  }
+
+  if(!isUrl(req.body.link)) {
+    return res.json({ success: false, err: 'err_link_invalid', msg: 'That download link isn\'t a valid URL' });
+  }
+
+  if(req.body.image && !isUrl(req.body.image)) {
+    return res.json({ success: false, err: 'err_img_invalid', msg: 'That image link isn\'t a valid URL' });
   }
 
   // handle duplicates
   var duplicate = db.get('games')
-                    .find({name: req.body.name, link: req.body.link});
+    .find({ name: req.body.name, link: req.body.link });
 
-  if(duplicate.value()) {
-    return res.json({resp: false, err: 'err_duplicate', msg: 'This game already exists!'});
+  if (duplicate.value()) {
+    return res.json({ success: false, err: 'err_duplicate', msg: 'This game already exists!' });
   }
+
+  // add its tags to the database
+  
 
   // assign it a uuid
   var id = uuid.v4();
 
-  // fallback image
-  var fallback = 'https://unsplash.it/1280/720?image=' + (10 + Math.floor(Math.random()*100));
-
   var game = {
-    uuid: id,
-    name: req.body.name,
-    image: fallback,
-    link: req.body.link,
+    id: id,
+    name: req.body.name.toLowerCase(),
+    link: req.body.link.toLowerCase(),
+    image: req.body.image || 'assets/img/unknown.png',
     desc: req.body.desc,
+    tags: req.body.tags,
     platforms: req.body.platforms,
-    tags: req.body.tags
   }
 
   // add the game
@@ -71,26 +86,29 @@ app.post('/games', function (req, res) {
     .push(game)
     .write();
 
-  // add its tags
-  
-  var resolver = new ImageResolver();
-  resolver.register(new ImageResolver.FileExtension());
-  resolver.register(new ImageResolver.MimeType());
-  resolver.register(new ImageResolver.Opengraph());
-  resolver.register(new ImageResolver.Webpage());
+  if (!req.body.image) {
+    var resolver = new ImageResolver();
+    resolver.register(new ImageResolver.FileExtension());
+    resolver.register(new ImageResolver.MimeType());
+    resolver.register(new ImageResolver.Opengraph());
+    resolver.register(new ImageResolver.Webpage());
 
-  resolver.resolve(req.body.link, function (result) {
-      if(result) {
+    resolver.resolve(req.body.link, function (result) {
+      var image;
+
+      if (result) {
+        image = result.image;
         db.get('games')
-          .find({uuid: uuid})
-          .assign({image: result.image})
+          .find({ id: id })
+          .assign({ image: image })
           .write();
       } else {
         console.log("No image found for " + req.body.link);
       }
-  });
+    });
+  }
 
-  console.log("Added new game: " + JSON.stringify(req.body));
+  console.log("\nAdded new game: " + JSON.stringify(game));
 
-  res.json(game);
+  res.json({success: true, game: game});
 });

@@ -1,0 +1,15 @@
+<span>
+  <md-toolbar color="primary">
+    <span id="app-title" (click)="goHome()">Dangle</span>
+</md-toolbar>
+</span>
+
+<div id="content" *ngIf="game">
+  <h1>
+    {{id}}
+  </h1>
+
+  <h2>{{game.name | titlecase}}</h2>
+
+  <h3>{{game.desc | titlecase}}</h3>
+</div>

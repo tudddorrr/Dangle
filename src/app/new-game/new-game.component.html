@@ -2,25 +2,25 @@
 
 <md-dialog-content>
   <md-input-container>
-    <input [(ngModel)]="name" mdInput placeholder="Name" />
+    <input [(ngModel)]="name" mdInput placeholder="Name" required />
   </md-input-container>
   <md-divider></md-divider>
 
   <h3 md-subheader>Link</h3>
   <md-input-container>
-    <input [(ngModel)]="link" mdInput placeholder="Add a download URL for this game" />
+    <input [(ngModel)]="link" mdInput placeholder="Download link for this game" required />
   </md-input-container>
   <md-divider></md-divider>
 
   <h3 md-subheader>Banner image</h3>
   <md-input-container>
-    <input [(ngModel)]="image" mdInput placeholder="Choose an image URL to use for this game" />
+    <input [(ngModel)]="image" mdInput placeholder="Image link for this game" />
   </md-input-container>
   <md-divider></md-divider>
 
   <h3 md-subheader>Description</h3>
   <md-input-container>
-    <textarea [(ngModel)]="desc" mdInput placeholder="Describe this game"></textarea>
+    <textarea [(ngModel)]="desc" mdInput placeholder="Describe this game" required></textarea>
   </md-input-container>
   <md-divider></md-divider>
 
@@ -30,8 +30,8 @@
   </md-input-container>
   <div id=tags>
     <md-chip-list>
-      <md-chip *ngFor="let tag of tags" color="accent" selected="true">{{tag | lowercase}} 
-        <span class="removeTag" (click)="removeTag(tag)">x</span>
+      <md-chip *ngFor="let tag of tags" (click)="removeTag(tag)" color="accent" selected="true" class="removable">
+        {{tag | lowercase}} 
       </md-chip>
     </md-chip-list>
   </div>
@@ -43,5 +43,5 @@
 
 <div id="buttonGroup">
   <button (click)="addGame()" md-button>Add Game</button>
-  <button md-button>Cancel</button>
+  <button (click)="cancel()" md-button>Cancel</button>
 </div>
