@@ -112,3 +112,30 @@ app.post('/game', function (req, res) {
 
   res.json({success: true, game: game});
 });
+
+// getting events
+app.get('/events', function(req, res) {
+  return res.json(db.get('events').filter({
+    meta: {
+      gameid: req.query.id
+    }
+  }));
+});
+
+// adding an event
+app.post('/event', function(req, res) {
+  if (!req.body.title || !req.body.start || !req.body.end) {
+    return res.json({ success: false, err: 'err_missing_details', msg: 'You haven\'t filled in all the required fields' })
+  }
+  
+  var event = req.body;
+
+  //todo dont use req.body, build indiivudally
+  db.get('events')
+    .push(event)
+    .write();
+
+  console.log("\nAdded new event: " + JSON.stringify(event));
+
+  res.json({ success: true, event: event});
+});

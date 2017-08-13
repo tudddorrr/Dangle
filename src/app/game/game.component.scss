@@ -1,7 +1,57 @@
+h1 {
+    font-size: 5rem;
+    margin: 0;
+}
+
+h2 {
+    text-align: center;
+}
+
 #app-title {
     cursor: pointer;
 }
 
-#content {
-    padding: 2em;
+#container {
+    width: 90vw;
+    margin: auto;
+    margin-top: 2em;
 }
+
+#picture {
+    width: 50%;
+    float: left;
+
+    img {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+#info {
+    display: flex;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+    float: left;
+}
+
+#info-wrapper {
+    padding: 2em;
+    padding-bottom: 0;
+}
+
+#calendar {
+    width: 90vw;
+    padding: 2em;
+    margin: auto;
+}
+
+.clear {
+    clear: both;
+}
+
+.faded {
+    text-transform: uppercase;
+    color: grey;
+}
+

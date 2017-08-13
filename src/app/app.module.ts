@@ -13,6 +13,9 @@ import { SnackbarService } from './services/snackbar/snackbar.service'
 import { GameComponent } from './game/game.component';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
+import { CalendarModule } from 'angular-calendar';
+import { NewEventComponent } from './new-event/new-event.component';
+import { ViewEventComponent } from './view-event/view-event.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -25,7 +28,9 @@ const routes: Routes = [
     AppComponent,
     NewGameComponent,
     GameComponent,
-    HomeComponent
+    HomeComponent,
+    NewEventComponent,
+    ViewEventComponent
   ],
   imports: [
     BrowserModule,
@@ -34,10 +39,13 @@ const routes: Routes = [
     MaterialModule,
     BrowserAnimationsModule,
     NoopAnimationsModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    CalendarModule.forRoot()
   ],
   entryComponents: [
-    NewGameComponent
+    NewGameComponent,
+    NewEventComponent,
+    ViewEventComponent
   ],
   providers: [ApiService, SnackbarService],
   bootstrap: [AppComponent]

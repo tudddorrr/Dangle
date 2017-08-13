@@ -1,0 +1,17 @@
+<h2>{{data.title}}</h2>
+
+<md-dialog-content>
+  <p>From 12:00am to 1:00am</p>
+  <br>
+
+  <h3 md-subheader>Delete this session</h3>
+  <md-input-container>
+    <input [(ngModel)]="deletionKey" mdInput placeholder="Enter your deletion key" />
+  </md-input-container>
+  <md-divider></md-divider>
+</md-dialog-content>
+
+<div id="buttonGroup">
+  <button *ngIf="deletionKey.length>0" (click)="delete()" md-button>Delete</button>
+  <button (click)="done()" md-button>Done</button>
+</div>

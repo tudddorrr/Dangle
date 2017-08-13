@@ -1,0 +1,36 @@
+<h2>New Session on {{data.day.date | date}}</h2>
+
+<md-dialog-content>
+  <md-input-container>
+    <input [(ngModel)]="name" mdInput placeholder="Your name/username" required />
+  </md-input-container>
+  <md-divider></md-divider>
+
+  <h3 md-subheader>Starting at</h3>
+  <md-input-container class="time-picker">
+    <input [(ngModel)]="startHour" mdInput placeholder="hh" type="number" min=0 max=23 required />
+  </md-input-container>
+  :
+  <md-input-container class="time-picker">
+    <input [(ngModel)]="startMin" mdInput placeholder="mm" type="number" min=0 max=59  required />
+  </md-input-container>
+  <md-divider></md-divider>
+
+  <h3 md-subheader>Ending at</h3>
+  <md-input-container class="time-picker">
+    <input [(ngModel)]="endHour" mdInput placeholder="hh" type="number" min=0 max=23 required />
+  </md-input-container>
+  :
+  <md-input-container class="time-picker">
+    <input [(ngModel)]="endMin" mdInput placeholder="mm" type="number" min=0 max=59 required />
+  </md-input-container>
+  <md-divider></md-divider>
+
+  <h3 md-subheader>Deletion key: <span class="primary-text">HA674</span></h3>
+  <p class="info">Use this key if you need to delete this session in the future</p>
+</md-dialog-content>
+
+<div id="buttonGroup">
+  <button (click)="addEvent()" md-button>Add Event</button>
+  <button (click)="cancel()" md-button>Cancel</button>
+</div>

@@ -4,12 +4,39 @@
 </md-toolbar>
 </span>
 
-<div id="content" *ngIf="game">
-  <h1>
-    {{id}}
-  </h1>
+<div *ngIf="game" id="container">
+  <div id="picture">
+    <img [src]="game.image">
+  </div>
 
-  <h2>{{game.name | titlecase}}</h2>
+  <div id="info">
+    <div id="info-wrapper">
+      <h1>{{game.name | titlecase}}</h1>
 
-  <h3>{{game.desc | titlecase}}</h3>
+      <p><a [href]="game.link">{{game.link.split('//')[1]}}</a></p>
+      <br>
+
+      <p class="faded">{{game.desc | lowercase}}</p>
+      <br>
+
+      <h3>Available on: </h3>
+      <p>Windows, Mac, Linux</p>
+
+      <h3>Tags</h3>
+      <p>{{game.tags.join(', ')}}</p>
+    </div>
+  </div>
+
+  <div class="clear"></div>
+</div>
+
+<div id="calendar">
+  <h2 class="faded">{{date | date:'MMMM yyyy' | uppercase }}</h2>
+  <mwl-calendar-month-view 
+    [viewDate]="date" 
+    [events]="events" 
+    [refresh]="refresh" 
+    (eventClicked)="eventClicked($event.event)"
+    (dayClicked)="dayClicked($event.day)">
+  </mwl-calendar-month-view>
 </div>

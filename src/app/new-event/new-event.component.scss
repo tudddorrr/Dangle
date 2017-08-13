@@ -1,0 +1,23 @@
+$width: 30vw;
+
+md-input-container {
+    min-width: $width;
+}
+
+a:active, a:visited {
+    text-decoration: none;
+}
+
+#buttonGroup {
+    float: right;
+}
+
+.info {
+    margin-top: -1em;
+    color: #aaa;
+}
+
+.time-picker {
+    min-width: 15%;
+    width: 15%;
+}
