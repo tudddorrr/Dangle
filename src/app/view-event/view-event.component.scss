@@ -1,9 +1,30 @@
-$width: 30vw;
+$width: 70vw;
+$input-width: 30vw;
 
 md-input-container {
-    min-width: $width;
+    min-width: $input-width;
+}
+
+md-dialog-content {
+    width: $width;
 }
 
 #buttonGroup {
     float: right;
+}
+
+#create {
+    margin: 1em 0;
+}
+
+.event {
+    height: 2em;
+    background: lightblue;
+    margin-top: 2px;
+}
+
+.gridText {
+    position: absolute;
+    left: 0.5em;
+    top: 25%;
 }

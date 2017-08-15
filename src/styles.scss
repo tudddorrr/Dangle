@@ -68,6 +68,12 @@ md-chip {
     opacity: 0.8;
 }
 
+md-grid-tile {
+    background: mat-color($dangle-primary);
+    color: white;
+    font-weight: bold;
+}
+
 #app-title {
     margin: 0 auto;
 }

@@ -2,6 +2,12 @@ h2 {
     text-transform: uppercase;
 }
 
+md-card {
+    img {
+        cursor: pointer;
+    }
+}
+
 #intro {
     font-size: 1.25rem;
     color: gray;

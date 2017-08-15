@@ -1,14 +1,21 @@
-<h2>{{data.title}}</h2>
+<h2>{{data.day.date | date:'shortDate'}}'s sessions</h2>
 
 <md-dialog-content>
-  <p>From 12:00am to 1:00am</p>
-  <br>
+  <md-grid-list *ngIf="todaysEvents().length>0" [cols]="cols" rows="1" rowHeight="2.5em">
+    <md-grid-tile *ngFor="let time of times"><span class="gridText">{{time}}</span></md-grid-tile>
+  </md-grid-list>
+  <div *ngFor="let event of todaysEvents()" [style.margin-left]="getMargin(event) + '%'" [style.width]="getWidth(event) + '%'" class="event">
+    {{event.start | date:'jm'}} to {{event.end | date:'jm'}}
+  </div>
+  
+  <div *ngIf="todaysEvents().length===0"><h4>No sessions yet today, create one below!</h4></div>
 
-  <h3 md-subheader>Delete this session</h3>
+  <button id="create" (click)="create()" md-raised-button color="primary">Create new session</button>
+
+  <h3 md-subheader>Delete a session</h3>
   <md-input-container>
     <input [(ngModel)]="deletionKey" mdInput placeholder="Enter your deletion key" />
   </md-input-container>
-  <md-divider></md-divider>
 </md-dialog-content>
 
 <div id="buttonGroup">

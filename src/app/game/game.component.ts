@@ -19,9 +19,6 @@ export class GameComponent implements OnInit, OnDestroy {
   date: Date = new Date();
   events: CalendarEvent<any>[] = [];
 
-  refresh: Subject<any> = new Subject<any>();
-  eventDialogOpened: boolean;
-
   constructor(private route: ActivatedRoute, private router: Router, private api: ApiService, public dialog: MdDialog) { }
 
   ngOnInit() {
@@ -59,7 +56,10 @@ export class GameComponent implements OnInit, OnDestroy {
   }
 
   dayClicked(day) {
-    if (this.eventDialogOpened) return;
+    this.openViewDialog(day);
+  }
+
+  openCreateDialog(day) {
     let dialogRef = this.dialog.open(NewEventComponent, { data: { day: day, gameid: this.id } });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -69,20 +69,31 @@ export class GameComponent implements OnInit, OnDestroy {
     });
   }
 
-  eventClicked(event) {
-    this.dialog.closeAll();
-
-    let dialogRef = this.dialog.open(ViewEventComponent, { data: event });
-    this.eventDialogOpened = true;
+  openViewDialog(day) {
+    let dialogRef = this.dialog.open(ViewEventComponent, { data: {day: day, events: this.events} });
 
     dialogRef.afterClosed().subscribe(result => {
-      this.eventDialogOpened = false;
+      if(result && result.create) {
+        this.openCreateDialog(day);
+      }
     });
   }
 
   pushEvent(event) {
     this.events.push(event);
-    console.log(event);
-    this.refresh.next();
+
+    this.events = this.events.map(event => {
+      return {
+        start: new Date(event.start),
+        end: new Date(event.end),
+        title: event.title,
+        color: {
+          primary: event.color.primary,
+          secondary: event.color.secondary
+        }
+      }
+    });
+    // console.log(event);
+    // this.refresh.next();
   }
 }

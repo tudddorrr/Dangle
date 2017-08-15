@@ -22,7 +22,7 @@
 
 <div *ngIf="games.length>0" id="cards">
   <md-card *ngFor="let game of getGames(); let i = index">
-    <img md-card-image [src]="game.image">
+    <img (click)="clickGame(game)" md-card-image [src]="game.image">
 
     <md-card-content>
       <p (click)="clickGame(game)" class="gameName">
