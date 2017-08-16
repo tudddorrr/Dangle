@@ -3,7 +3,7 @@ import { MdDialogRef, MD_DIALOG_DATA } from '@angular/material';
 import { ApiService } from '../services/api/api.service';
 import { SnackbarService } from '../services/snackbar/snackbar.service';
 import * as _ from 'lodash';
-import { isSameDay, differenceInMinutes, getHours } from 'date-fns';
+import { isSameDay, differenceInMinutes, getHours, isPast } from 'date-fns';
 
 @Component({
   selector: 'app-view-event',
@@ -15,8 +15,11 @@ export class ViewEventComponent implements OnInit {
   viewDate: Date = new Date();
   cols: number = 12;
   times: string[] = ['0am', '2am', '4am', '6am', '8am', '10am', '12pm', '2pm', '4pm', '6pm', '8pm', '10pm'];
+  events: any[] = [];
 
-  constructor(@Inject(MD_DIALOG_DATA) public data: any, public dialogRef: MdDialogRef<ViewEventComponent>, private api: ApiService, private snackbar: SnackbarService) { }
+  constructor(@Inject(MD_DIALOG_DATA) public data: any, public dialogRef: MdDialogRef<ViewEventComponent>, private api: ApiService, private snackbar: SnackbarService) { 
+    this.setEvents();
+  }
 
   ngOnInit() {}
 
@@ -48,20 +51,16 @@ export class ViewEventComponent implements OnInit {
     this.dialogRef.close({create: true})
   }
 
-  todaysEvents(): any[] {
-    let events: any[] = [];
-
+  setEvents(): void {
     for(let event of this.data.events) {
       if(isSameDay(this.data.day.date, event.start)) {
-        events.push(event);
-        events[events.length-1].useEnd = false;
+        this.events.push(event);
+        this.events[this.events.length-1].useEnd = false;
       } else if(isSameDay(this.data.day.date, event.end)) {
-        events.push(event);
-        events[events.length-1].useEnd = true;
+        this.events.push(event);
+        this.events[this.events.length-1].useEnd = true;
       }
     }
-
-    return events;
   }
 
   getDuration(event): number {
@@ -78,5 +77,13 @@ export class ViewEventComponent implements OnInit {
     } else {
       return getHours(event.start);
     }
+  }
+
+  isToday(): boolean {
+    return isSameDay(new Date(), this.data.day.date);
+  }
+
+  isPast(): boolean {
+    return isPast(this.data.day.date) && !this.isToday();
   }
 }

@@ -20,8 +20,11 @@
       <br>
 
       <h3>Available on: </h3>
-      <p>Windows, Mac, Linux</p>
-
+      <span *ngFor="let platform of game.platforms; let i = index">
+        <img *ngIf="platform" mdTooltip="{{platforms[i] | titlecase}}" 
+        mdTooltipPosition="above" class="platform" [src]="'assets/img/' + platforms[i] + '.png'">
+      </span>
+     
       <h3>Tags</h3>
       <p>{{game.tags.join(', ')}}</p>
     </div>

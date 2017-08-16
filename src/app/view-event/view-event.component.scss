@@ -19,8 +19,19 @@ md-dialog-content {
 
 .event {
     height: 2em;
-    background: lightblue;
+    line-height: 2em;
     margin-top: 2px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+
+    span {
+        display: inline-block;
+        vertical-align: middle;
+        line-height: normal;
+        margin-left: 0.5em;
+        color: white;
+    }
 }
 
 .gridText {

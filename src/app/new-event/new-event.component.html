@@ -7,27 +7,38 @@
   <md-divider></md-divider>
 
   <h3 md-subheader>Starting at</h3>
-  <md-input-container class="time-picker">
-    <input [(ngModel)]="startHour" mdInput placeholder="hh" type="number" min=0 max=23 required />
-  </md-input-container>
+  <md-select placeholder="hh" [(ngModel)]="startHour" required>
+    <md-option *ngFor="let hour of hours" [value]="hour">
+      {{ hour<10 ? '0' + hour : hour }}
+    </md-option>
+  </md-select>
   :
-  <md-input-container class="time-picker">
-    <input [(ngModel)]="startMin" mdInput placeholder="mm" type="number" min=0 max=59  required />
-  </md-input-container>
+  <md-select placeholder="mm" [(ngModel)]="startMins" required>
+    <md-option *ngFor="let min of mins" [value]="min">
+      {{ min===0 ? '00' : min }}
+    </md-option>
+  </md-select>
   <md-divider></md-divider>
 
-  <h3 md-subheader>Ending at</h3>
-  <md-input-container class="time-picker">
-    <input [(ngModel)]="endHour" mdInput placeholder="hh" type="number" min=0 max=23 required />
-  </md-input-container>
+  <h3 md-subheader>Duration</h3>
+  <md-select placeholder="Hour(s)" [(ngModel)]="addHours" required>
+    <md-option *ngFor="let hour of durHours" [value]="hour">
+      {{ hour }}
+    </md-option>
+  </md-select>
   :
-  <md-input-container class="time-picker">
-    <input [(ngModel)]="endMin" mdInput placeholder="mm" type="number" min=0 max=59 required />
-  </md-input-container>
+  <md-select placeholder="Minutes" [(ngModel)]="addMins" required>
+    <md-option *ngFor="let min of durMins" [value]="min">
+      {{ min===0 ? '00' : min }}
+    </md-option>
+  </md-select>
   <md-divider></md-divider>
+  <br>
 
-  <h3 md-subheader>Deletion key: <span class="primary-text">HA674</span></h3>
-  <p class="info">Use this key if you need to delete this session in the future</p>
+  <div *ngIf="api.deletesEnabled">
+    <h3 md-subheader>Deletion key: <span class="primary-text">HA674</span></h3>
+    <p class="info">Use this key if you need to delete this session in the future</p>
+  </div>
 </md-dialog-content>
 
 <div id="buttonGroup">

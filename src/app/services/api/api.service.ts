@@ -5,6 +5,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class ApiService {
   address: string = "http://localhost:4040";
+  deletesEnabled: boolean = false;
 
   constructor(private http: Http) { }
 

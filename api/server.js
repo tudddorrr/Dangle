@@ -6,6 +6,7 @@ var ImageResolver = require('image-resolver');
 const uuid = require('uuid');
 const isUrl = require('is-url');
 var _ = require('lodash');
+var randomColor = require('randomcolor');
 var app = express();
 
 app.use(bodyParser.json());
@@ -127,10 +128,19 @@ app.post('/event', function(req, res) {
   if (!req.body.title || !req.body.start || !req.body.end) {
     return res.json({ success: false, err: 'err_missing_details', msg: 'You haven\'t filled in all the required fields' })
   }
-  
-  var event = req.body;
 
-  //todo dont use req.body, build indiivudally
+  var colour = randomColor();
+  var event = {
+    title: req.body.title,
+    start: req.body.start,
+    end: req.body.end,
+    color: {
+      primary: colour,
+      secondary: colour,
+    },
+    meta: req.body.meta
+  };
+
   db.get('events')
     .push(event)
     .write();

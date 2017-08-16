@@ -12,6 +12,7 @@
     "lodash": "^4.17.4",
     "lowdb": "^0.16.2",
     "nodemon": "^1.11.0",
+    "randomcolor": "^0.5.3",
     "uuid": "^3.1.0"
   },
   "devDependencies": {},

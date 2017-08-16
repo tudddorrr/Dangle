@@ -58,276 +58,36 @@
   "tags": [],
   "events": [
     {
-      "title": "sadsasada",
-      "start": "2017-08-13T21:40:51.100Z",
-      "end": "2017-08-13T21:40:51.100Z",
+      "title": "asdasd",
+      "start": "2017-08-16T18:53:00.882Z",
+      "end": "2017-08-17T08:29:57.237Z",
       "color": {
-        "primary": "#ad2121",
-        "secondary": "#FAE3E3"
-      },
-      "meta": {
-        "gameid": "0c3992f0-66b1-4fe1-a26b-2414f226c44f"
-      }
-    },
-    {
-      "title": "sdaasdasdsaas das das das dsa d sad ads",
-      "start": "2017-08-13T21:41:00.972Z",
-      "end": "2017-08-13T21:41:00.972Z",
-      "color": {
-        "primary": "#ad2121",
-        "secondary": "#FAE3E3"
-      },
-      "meta": {
-        "gameid": "0c3992f0-66b1-4fe1-a26b-2414f226c44f"
-      }
-    },
-    {
-      "title": "sadasdasdasda",
-      "start": "2017-08-13T21:41:44.209Z",
-      "end": "2017-08-13T21:41:44.209Z",
-      "color": {
-        "primary": "#ad2121",
-        "secondary": "#FAE3E3"
-      },
-      "meta": {
-        "gameid": "0c3992f0-66b1-4fe1-a26b-2414f226c44f"
-      }
-    },
-    {
-      "title": "k",
-      "start": "2017-08-13T21:47:12.354Z",
-      "end": "2017-08-13T21:47:12.354Z",
-      "color": {
-        "primary": "#ad2121",
-        "secondary": "#FAE3E3"
-      },
-      "meta": {
-        "gameid": "0c3992f0-66b1-4fe1-a26b-2414f226c44f"
-      }
-    },
-    {
-      "title": "dsadsada",
-      "start": "2017-08-13T21:51:59.811Z",
-      "end": "2017-08-13T21:51:59.811Z",
-      "color": {
-        "primary": "#ad2121",
-        "secondary": "#FAE3E3"
-      },
-      "meta": {
-        "gameid": "0c3992f0-66b1-4fe1-a26b-2414f226c44f"
-      }
-    },
-    {
-      "title": "sadsadadasdadasdasda",
-      "start": "2017-08-13T21:52:03.309Z",
-      "end": "2017-08-13T21:52:03.309Z",
-      "color": {
-        "primary": "#ad2121",
-        "secondary": "#FAE3E3"
-      },
-      "meta": {
-        "gameid": "0c3992f0-66b1-4fe1-a26b-2414f226c44f"
-      }
-    },
-    {
-      "title": "sadsadsadasdasdadasdadasdasdasdasd",
-      "start": "2017-08-13T21:52:08.043Z",
-      "end": "2017-08-13T21:52:08.043Z",
-      "color": {
-        "primary": "#ad2121",
-        "secondary": "#FAE3E3"
-      },
-      "meta": {
-        "gameid": "0c3992f0-66b1-4fe1-a26b-2414f226c44f"
-      }
-    },
-    {
-      "title": "sadasdasdsadasdasdasda",
-      "start": "2017-08-13T21:52:11.344Z",
-      "end": "2017-08-13T21:52:11.344Z",
-      "color": {
-        "primary": "#ad2121",
-        "secondary": "#FAE3E3"
-      },
-      "meta": {
-        "gameid": "0c3992f0-66b1-4fe1-a26b-2414f226c44f"
-      }
-    },
-    {
-      "title": "asdasdasdas",
-      "start": "2017-08-13T21:52:21.736Z",
-      "end": "2017-08-13T21:52:21.736Z",
-      "color": {
-        "primary": "#ad2121",
-        "secondary": "#FAE3E3"
-      },
-      "meta": {
-        "gameid": "0c3992f0-66b1-4fe1-a26b-2414f226c44f"
-      }
-    },
-    {
-      "title": "sadasdsadadasdaadadas",
-      "start": "2017-08-13T21:52:25.244Z",
-      "end": "2017-08-13T21:52:25.244Z",
-      "color": {
-        "primary": "#ad2121",
-        "secondary": "#FAE3E3"
-      },
-      "meta": {
-        "gameid": "0c3992f0-66b1-4fe1-a26b-2414f226c44f"
-      }
-    },
-    {
-      "title": "sadsadasdasdsadasdasdasdadasdasds",
-      "start": "2017-08-13T21:52:29.271Z",
-      "end": "2017-08-13T21:52:29.271Z",
-      "color": {
-        "primary": "#ad2121",
-        "secondary": "#FAE3E3"
-      },
-      "meta": {
-        "gameid": "0c3992f0-66b1-4fe1-a26b-2414f226c44f"
-      }
-    },
-    {
-      "title": "saadasas",
-      "start": "2017-08-13T21:52:31.642Z",
-      "end": "2017-08-13T21:52:31.642Z",
-      "color": {
-        "primary": "#ad2121",
-        "secondary": "#FAE3E3"
-      },
-      "meta": {
-        "gameid": "0c3992f0-66b1-4fe1-a26b-2414f226c44f"
-      }
-    },
-    {
-      "title": "dsdsfds",
-      "start": "2017-08-13T21:52:33.955Z",
-      "end": "2017-08-13T21:52:33.955Z",
-      "color": {
-        "primary": "#ad2121",
-        "secondary": "#FAE3E3"
-      },
-      "meta": {
-        "gameid": "0c3992f0-66b1-4fe1-a26b-2414f226c44f"
-      }
-    },
-    {
-      "title": "dsfsdfsd",
-      "start": "2017-08-13T21:52:36.063Z",
-      "end": "2017-08-13T21:52:36.063Z",
-      "color": {
-        "primary": "#ad2121",
-        "secondary": "#FAE3E3"
-      },
-      "meta": {
-        "gameid": "0c3992f0-66b1-4fe1-a26b-2414f226c44f"
-      }
-    },
-    {
-      "title": "asdasdsasa",
-      "start": "2017-08-13T21:52:38.171Z",
-      "end": "2017-08-13T21:52:38.171Z",
-      "color": {
-        "primary": "#ad2121",
-        "secondary": "#FAE3E3"
-      },
-      "meta": {
-        "gameid": "0c3992f0-66b1-4fe1-a26b-2414f226c44f"
-      }
-    },
-    {
-      "title": "dgdgfdgf",
-      "start": "2017-08-13T21:52:40.280Z",
-      "end": "2017-08-13T21:52:40.280Z",
-      "color": {
-        "primary": "#ad2121",
-        "secondary": "#FAE3E3"
-      },
-      "meta": {
-        "gameid": "0c3992f0-66b1-4fe1-a26b-2414f226c44f"
-      }
-    },
-    {
-      "title": "asdasdasdsa",
-      "start": "2017-08-13T21:52:42.629Z",
-      "end": "2017-08-13T21:52:42.629Z",
-      "color": {
-        "primary": "#ad2121",
-        "secondary": "#FAE3E3"
-      },
-      "meta": {
-        "gameid": "0c3992f0-66b1-4fe1-a26b-2414f226c44f"
-      }
-    },
-    {
-      "title": "sadasdasda",
-      "start": "2017-08-13T21:55:13.335Z",
-      "end": "2017-08-13T21:55:13.335Z",
-      "color": {
-        "primary": "#ad2121",
-        "secondary": "#FAE3E3"
-      },
-      "meta": {
-        "gameid": "0c3992f0-66b1-4fe1-a26b-2414f226c44f"
-      }
-    },
-    {
-      "title": "sdsaadadadada",
-      "start": "2017-08-14T17:49:37.266Z",
-      "end": "2017-08-14T17:49:37.266Z",
-      "color": {
-        "primary": "#ad2121",
-        "secondary": "#FAE3E3"
-      },
-      "meta": {
-        "gameid": "0c3992f0-66b1-4fe1-a26b-2414f226c44f"
-      }
-    },
-    {
-      "title": "sadadas",
-      "start": "2017-08-14T17:58:58.081Z",
-      "end": "2017-08-14T17:58:58.081Z",
-      "color": {
-        "primary": "#ad2121",
-        "secondary": "#FAE3E3"
+        "primary": "#61ed36",
+        "secondary": "#61ed36"
       },
       "meta": {
         "gameid": "c99a2fde-45f8-498e-8dbd-557603918ebc"
       }
     },
     {
-      "title": "dsadadaddasdas",
-      "start": "2017-08-14T18:14:46.687Z",
-      "end": "2017-08-14T18:14:46.687Z",
+      "title": "asdasda",
+      "start": "2017-08-16T18:54:13.830Z",
+      "end": "2017-08-17T07:23:06.726Z",
       "color": {
-        "primary": "#ad2121",
-        "secondary": "#FAE3E3"
+        "primary": "#b699e8",
+        "secondary": "#b699e8"
       },
       "meta": {
         "gameid": "c99a2fde-45f8-498e-8dbd-557603918ebc"
       }
     },
     {
-      "title": "asdsadasdad",
-      "start": "2017-08-14T18:21:33.166Z",
-      "end": "2017-08-14T18:51:33.166Z",
+      "title": "asdsaddasdsa",
+      "start": "2017-08-16T18:54:18.113Z",
+      "end": "2017-08-17T03:33:11.110Z",
       "color": {
-        "primary": "#ad2121",
-        "secondary": "#FAE3E3"
-      },
-      "meta": {
-        "gameid": "c99a2fde-45f8-498e-8dbd-557603918ebc"
-      }
-    },
-    {
-      "title": "dassad",
-      "start": "2017-08-14T18:55:58.263Z",
-      "end": "2017-08-14T19:25:58.263Z",
-      "color": {
-        "primary": "#ad2121",
-        "secondary": "#FAE3E3"
+        "primary": "#8fdb39",
+        "secondary": "#8fdb39"
       },
       "meta": {
         "gameid": "c99a2fde-45f8-498e-8dbd-557603918ebc"
@@ -335,167 +95,71 @@
     },
     {
       "title": "asdasdasda",
-      "start": "2017-08-14T18:56:01.389Z",
-      "end": "2017-08-14T19:26:01.389Z",
+      "start": "2017-08-16T18:54:22.354Z",
+      "end": "2017-08-16T23:52:27.303Z",
       "color": {
-        "primary": "#ad2121",
-        "secondary": "#FAE3E3"
+        "primary": "#42ffa3",
+        "secondary": "#42ffa3"
       },
       "meta": {
         "gameid": "c99a2fde-45f8-498e-8dbd-557603918ebc"
       }
     },
     {
-      "title": "sdasdasdasdadadsdasd",
-      "start": "2017-08-14T18:56:28.882Z",
-      "end": "2017-08-14T19:26:28.882Z",
+      "title": "dsdasdasda",
+      "start": "2017-08-16T18:54:26.412Z",
+      "end": "2017-08-16T22:29:00.106Z",
       "color": {
-        "primary": "#ad2121",
-        "secondary": "#FAE3E3"
+        "primary": "#f7b262",
+        "secondary": "#f7b262"
       },
       "meta": {
         "gameid": "c99a2fde-45f8-498e-8dbd-557603918ebc"
       }
     },
     {
-      "title": "asdadgfdgdgfdgdfgd",
-      "start": "2017-08-14T18:56:32.161Z",
-      "end": "2017-08-14T19:26:32.161Z",
+      "title": "saddasda",
+      "start": "2017-08-16T18:54:31.239Z",
+      "end": "2017-08-17T05:50:28.683Z",
       "color": {
-        "primary": "#ad2121",
-        "secondary": "#FAE3E3"
+        "primary": "#9fc13a",
+        "secondary": "#9fc13a"
       },
       "meta": {
         "gameid": "c99a2fde-45f8-498e-8dbd-557603918ebc"
       }
     },
     {
-      "title": "dfgdgdfgdfgdgd",
-      "start": "2017-08-14T18:56:35.287Z",
-      "end": "2017-08-14T19:26:35.287Z",
+      "title": "asdsadasd",
+      "start": "2017-08-16T19:00:32.599Z",
+      "end": "2017-08-17T03:24:32.839Z",
       "color": {
-        "primary": "#ad2121",
-        "secondary": "#FAE3E3"
+        "primary": "#12b78b",
+        "secondary": "#12b78b"
       },
       "meta": {
         "gameid": "c99a2fde-45f8-498e-8dbd-557603918ebc"
       }
     },
     {
-      "title": "fdsffsf",
-      "start": "2017-08-14T18:57:42.956Z",
-      "end": "2017-08-14T19:27:42.956Z",
+      "title": "sdasdasd",
+      "start": "2017-08-16T19:00:36.785Z",
+      "end": "2017-08-17T05:16:59.503Z",
       "color": {
-        "primary": "#ad2121",
-        "secondary": "#FAE3E3"
+        "primary": "#a30ad6",
+        "secondary": "#a30ad6"
       },
       "meta": {
         "gameid": "c99a2fde-45f8-498e-8dbd-557603918ebc"
       }
     },
     {
-      "title": "dffsdffsfdgdf",
-      "start": "2017-08-14T18:57:45.777Z",
-      "end": "2017-08-14T19:27:45.777Z",
+      "title": "dasdasdas",
+      "start": "2017-08-16T19:00:40.549Z",
+      "end": "2017-08-17T08:10:48.072Z",
       "color": {
-        "primary": "#ad2121",
-        "secondary": "#FAE3E3"
-      },
-      "meta": {
-        "gameid": "c99a2fde-45f8-498e-8dbd-557603918ebc"
-      }
-    },
-    {
-      "title": "sdadadadasda",
-      "start": "2017-08-14T18:57:48.239Z",
-      "end": "2017-08-14T19:27:48.239Z",
-      "color": {
-        "primary": "#ad2121",
-        "secondary": "#FAE3E3"
-      },
-      "meta": {
-        "gameid": "c99a2fde-45f8-498e-8dbd-557603918ebc"
-      }
-    },
-    {
-      "title": "fsfsfsfdsfsfs",
-      "start": "2017-08-14T18:57:50.923Z",
-      "end": "2017-08-14T19:27:50.923Z",
-      "color": {
-        "primary": "#ad2121",
-        "secondary": "#FAE3E3"
-      },
-      "meta": {
-        "gameid": "c99a2fde-45f8-498e-8dbd-557603918ebc"
-      }
-    },
-    {
-      "title": "sadadas",
-      "start": "2017-08-14T19:11:53.036Z",
-      "end": "2017-08-14T19:45:49.611Z",
-      "color": {
-        "primary": "#ad2121",
-        "secondary": "#FAE3E3"
-      },
-      "meta": {
-        "gameid": "c99a2fde-45f8-498e-8dbd-557603918ebc"
-      }
-    },
-    {
-      "title": "asdadasd",
-      "start": "2017-08-14T19:12:01.268Z",
-      "end": "2017-08-14T19:22:20.095Z",
-      "color": {
-        "primary": "#ad2121",
-        "secondary": "#FAE3E3"
-      },
-      "meta": {
-        "gameid": "c99a2fde-45f8-498e-8dbd-557603918ebc"
-      }
-    },
-    {
-      "title": "asdadasdsa",
-      "start": "2017-08-14T19:12:03.272Z",
-      "end": "2017-08-14T20:08:13.065Z",
-      "color": {
-        "primary": "#ad2121",
-        "secondary": "#FAE3E3"
-      },
-      "meta": {
-        "gameid": "c99a2fde-45f8-498e-8dbd-557603918ebc"
-      }
-    },
-    {
-      "title": "asdasdads",
-      "start": "2017-08-14T19:12:05.147Z",
-      "end": "2017-08-14T20:05:59.539Z",
-      "color": {
-        "primary": "#ad2121",
-        "secondary": "#FAE3E3"
-      },
-      "meta": {
-        "gameid": "c99a2fde-45f8-498e-8dbd-557603918ebc"
-      }
-    },
-    {
-      "title": "sadsdadas",
-      "start": "2017-08-14T19:27:05.717Z",
-      "end": "2017-08-14T20:42:48.048Z",
-      "color": {
-        "primary": "#ad2121",
-        "secondary": "#FAE3E3"
-      },
-      "meta": {
-        "gameid": "0c3992f0-66b1-4fe1-a26b-2414f226c44f"
-      }
-    },
-    {
-      "title": "qwew",
-      "start": "2017-08-14T19:31:35.727Z",
-      "end": "2017-08-14T20:30:46.114Z",
-      "color": {
-        "primary": "#ad2121",
-        "secondary": "#FAE3E3"
+        "primary": "#2541bc",
+        "secondary": "#2541bc"
       },
       "meta": {
         "gameid": "c99a2fde-45f8-498e-8dbd-557603918ebc"
@@ -503,170 +167,110 @@
     },
     {
       "title": "asdasdas",
-      "start": "2017-08-14T19:33:59.516Z",
-      "end": "2017-08-14T20:38:42.905Z",
+      "start": "2017-08-16T19:00:44.937Z",
+      "end": "2017-08-17T03:05:56.646Z",
       "color": {
-        "primary": "#ad2121",
-        "secondary": "#FAE3E3"
-      },
-      "meta": {
-        "gameid": "0c3992f0-66b1-4fe1-a26b-2414f226c44f"
-      }
-    },
-    {
-      "title": "sdfsdfsf",
-      "start": "2017-08-14T19:34:03.146Z",
-      "end": "2017-08-14T20:03:18.466Z",
-      "color": {
-        "primary": "#ad2121",
-        "secondary": "#FAE3E3"
-      },
-      "meta": {
-        "gameid": "0c3992f0-66b1-4fe1-a26b-2414f226c44f"
-      }
-    },
-    {
-      "title": "asdasdas",
-      "start": "2017-08-15T20:31:58.213Z",
-      "end": "2017-08-15T20:46:33.826Z",
-      "color": {
-        "primary": "#ad2121",
-        "secondary": "#FAE3E3"
+        "primary": "#5b36ed",
+        "secondary": "#5b36ed"
       },
       "meta": {
         "gameid": "c99a2fde-45f8-498e-8dbd-557603918ebc"
       }
     },
     {
-      "title": "asdasdasd",
-      "start": "2017-08-15T20:34:17.741Z",
-      "end": "2017-08-15T21:30:41.288Z",
+      "title": "lol",
+      "start": "2017-08-17T09:15:00.000Z",
+      "end": "2017-08-17T12:45:00.000Z",
       "color": {
-        "primary": "#ad2121",
-        "secondary": "#FAE3E3"
+        "primary": "#d61b1e",
+        "secondary": "#d61b1e"
       },
       "meta": {
         "gameid": "c99a2fde-45f8-498e-8dbd-557603918ebc"
       }
     },
     {
-      "title": "asdasdasdasdasasdas",
-      "start": "2017-08-15T20:34:26.082Z",
-      "end": "2017-08-15T21:03:54.291Z",
+      "title": "Tudor",
+      "start": "2017-08-17T01:30:00.000Z",
+      "end": "2017-08-17T05:15:00.000Z",
       "color": {
-        "primary": "#ad2121",
-        "secondary": "#FAE3E3"
+        "primary": "#cc009c",
+        "secondary": "#cc009c"
       },
       "meta": {
         "gameid": "c99a2fde-45f8-498e-8dbd-557603918ebc"
       }
     },
     {
-      "title": "asdasdasdasd",
-      "start": "2017-08-15T20:35:01.115Z",
-      "end": "2017-08-15T21:25:12.594Z",
+      "title": "Tudor",
+      "start": "2017-08-17T00:15:00.000Z",
+      "end": "2017-08-17T04:45:00.000Z",
       "color": {
-        "primary": "#ad2121",
-        "secondary": "#FAE3E3"
+        "primary": "#6aa7c4",
+        "secondary": "#6aa7c4"
       },
       "meta": {
         "gameid": "c99a2fde-45f8-498e-8dbd-557603918ebc"
       }
     },
     {
-      "title": "asdasdsadasdasdas",
-      "start": "2017-08-15T20:35:05.431Z",
-      "end": "2017-08-15T21:04:34.093Z",
+      "title": "Tudor",
+      "start": "2017-08-17T01:45:00.000Z",
+      "end": "2017-08-18T02:00:00.000Z",
       "color": {
-        "primary": "#ad2121",
-        "secondary": "#FAE3E3"
+        "primary": "#e595c4",
+        "secondary": "#e595c4"
       },
       "meta": {
         "gameid": "c99a2fde-45f8-498e-8dbd-557603918ebc"
       }
     },
     {
-      "title": "sadsadsadsad",
-      "start": "2017-08-15T20:35:26.783Z",
-      "end": "2017-08-16T08:56:22.239Z",
+      "title": "Man",
+      "start": "2017-08-16T23:00:00.000Z",
+      "end": "2017-08-16T23:00:00.000Z",
       "color": {
-        "primary": "#ad2121",
-        "secondary": "#FAE3E3"
+        "primary": "#773af2",
+        "secondary": "#773af2"
       },
       "meta": {
         "gameid": "c99a2fde-45f8-498e-8dbd-557603918ebc"
       }
     },
     {
-      "title": "asdasdasda",
-      "start": "2017-08-15T20:35:42.787Z",
-      "end": "2017-08-16T01:49:05.525Z",
+      "title": "Man",
+      "start": "2017-08-16T23:00:00.000Z",
+      "end": "2017-08-17T23:45:00.000Z",
       "color": {
-        "primary": "#ad2121",
-        "secondary": "#FAE3E3"
+        "primary": "#77d800",
+        "secondary": "#77d800"
       },
       "meta": {
         "gameid": "c99a2fde-45f8-498e-8dbd-557603918ebc"
       }
     },
     {
-      "title": "aasdasdasda",
-      "start": "2017-08-15T20:35:46.418Z",
-      "end": "2017-08-16T04:40:13.338Z",
+      "title": "sadsadsa",
+      "start": "2017-08-17T00:45:00.000Z",
+      "end": "2017-08-17T04:30:00.000Z",
       "color": {
-        "primary": "#ad2121",
-        "secondary": "#FAE3E3"
+        "primary": "#f25e79",
+        "secondary": "#f25e79"
       },
       "meta": {
         "gameid": "c99a2fde-45f8-498e-8dbd-557603918ebc"
       }
     },
     {
-      "title": "asdasdsadas",
-      "start": "2017-08-15T20:35:59.952Z",
-      "end": "2017-08-16T02:55:12.855Z",
+      "title": "sadasdas",
+      "start": "2017-08-16T23:15:00.000Z",
+      "end": "2017-08-16T23:30:00.000Z",
       "color": {
-        "primary": "#ad2121",
-        "secondary": "#FAE3E3"
+        "primary": "#eaba9a",
+        "secondary": "#eaba9a"
       },
       "meta": {
         "gameid": "c99a2fde-45f8-498e-8dbd-557603918ebc"
-      }
-    },
-    {
-      "title": "sadsadsadsad",
-      "start": "2017-08-15T21:29:14.316Z",
-      "end": "2017-08-16T01:54:09.346Z",
-      "color": {
-        "primary": "#ad2121",
-        "secondary": "#FAE3E3"
-      },
-      "meta": {
-        "gameid": "233c1734-9cec-4b8a-b157-be5d3e9d27c7"
-      }
-    },
-    {
-      "title": "sadsadasda",
-      "start": "2017-08-15T21:30:10.259Z",
-      "end": "2017-08-16T10:22:03.736Z",
-      "color": {
-        "primary": "#ad2121",
-        "secondary": "#FAE3E3"
-      },
-      "meta": {
-        "gameid": "233c1734-9cec-4b8a-b157-be5d3e9d27c7"
-      }
-    },
-    {
-      "title": "sadasdsadada",
-      "start": "2017-08-15T21:30:24.818Z",
-      "end": "2017-08-16T08:34:47.162Z",
-      "color": {
-        "primary": "#ad2121",
-        "secondary": "#FAE3E3"
-      },
-      "meta": {
-        "gameid": "233c1734-9cec-4b8a-b157-be5d3e9d27c7"
       }
     }
   ]

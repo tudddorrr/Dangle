@@ -18,6 +18,7 @@ export class GameComponent implements OnInit, OnDestroy {
   game: any;
   date: Date = new Date();
   events: CalendarEvent<any>[] = [];
+  platforms: string[] = ['windows', 'mac', 'linux'];
 
   constructor(private route: ActivatedRoute, private router: Router, private api: ApiService, public dialog: MdDialog) { }
 

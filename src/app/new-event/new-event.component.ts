@@ -2,7 +2,8 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { MdDialogRef, MD_DIALOG_DATA } from '@angular/material';
 import { ApiService } from '../services/api/api.service';
 import { SnackbarService } from '../services/snackbar/snackbar.service';
-import { addMinutes, addHours } from 'date-fns';
+import { addMinutes, addHours, setHours, setMinutes, differenceInMinutes, isPast } from 'date-fns';
+import * as _ from 'lodash';
 
 @Component({
   selector: 'app-new-event',
@@ -11,40 +12,57 @@ import { addMinutes, addHours } from 'date-fns';
 })
 export class NewEventComponent implements OnInit {
   name: string;
-  startHour: number = 12; startMin: number = 0;
-  endHour: number = this.startHour; endMin: number = 0;
 
-  colors: any = {
-    red: {
-      primary: '#ad2121',
-      secondary: '#FAE3E3'
-    },
-    blue: {
-      primary: '#1e90ff',
-      secondary: '#D1E8FF'
-    },
-    yellow: {
-      primary: '#e3bc08',
-      secondary: '#FDF1BA'
-    }
-  };
+  hours: number[] = Array.apply(null, {length: 24}).map(Number.call, Number);
+  mins: number[] = [0, 15, 30, 45];
+  durHours: number[] = Array.apply(null, {length: 25}).map(Number.call, Number);
+  durMins: number[] = [0, 15, 30, 45];
 
-  constructor(@Inject(MD_DIALOG_DATA) public data: any, public dialogRef: MdDialogRef<NewEventComponent>, private api: ApiService, private snackbar: SnackbarService) { 
-  }
+  startHour: number;
+  startMins: number;
+  addHours: number;
+  addMins: number;
+
+  constructor(@Inject(MD_DIALOG_DATA) public data: any, public dialogRef: MdDialogRef<NewEventComponent>, private api: ApiService, private snackbar: SnackbarService) {}
 
   ngOnInit() {
   }
 
   addEvent() {
-    let end = new Date();
-    end = addMinutes(end, this.rand(10, 90));
-    end = addHours(end, this.rand(1, 14));
+    let start = _.cloneDeep(this.data.day.date);
+
+    console.log(this.startHour + ', ' + this.startMins);
+    console.log(this.addHours + ', ' + this.addMins);
+
+    start.setHours(this.startHour);
+    start.setMinutes(this.startMins);
+
+    let end = _.cloneDeep(start);
+    end = addHours(end, this.addHours);
+    end = addMinutes(end, this.addMins);
+
+    console.log(start);
+    console.log(end);
+
+    if(_.isUndefined(start) || _.isUndefined(end)) {
+      let snackBarRef = this.snackbar.create('Invalid date time!');
+      return;
+    }
+
+    if(differenceInMinutes(end, start)<15) {
+      let snackBarRef = this.snackbar.create('Play sessions can\'t be less than 15 minutes!');
+      return;
+    }
+
+    if(isPast(start)) {
+      let snackBarRef = this.snackbar.create('That starting time is in the past!');
+      return;
+    }
 
     this.api.post('event', {
       title: this.name,
-      start: new Date(),
+      start: start,
       end: end,
-      color: this.colors.red,
       meta: {
         gameid: this.data.gameid
       }
