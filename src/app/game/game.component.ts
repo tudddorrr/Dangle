@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from '../services/api/api.service';
 import { NewEventComponent } from '../new-event/new-event.component';
-import { ViewEventComponent } from '../view-event/view-event.component';
+import { ViewEventsComponent } from '../view-events/view-events.component';
 import { MdDialog } from '@angular/material';
 import { CalendarEvent } from 'angular-calendar';
 import { Subject } from 'rxjs/Subject';
@@ -71,7 +71,7 @@ export class GameComponent implements OnInit, OnDestroy {
   }
 
   openViewDialog(day) {
-    let dialogRef = this.dialog.open(ViewEventComponent, { data: {day: day, events: this.events} });
+    let dialogRef = this.dialog.open(ViewEventsComponent, { data: {day: day, events: this.events} });
 
     dialogRef.afterClosed().subscribe(result => {
       if(result && result.create) {

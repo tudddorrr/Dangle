@@ -53,6 +53,28 @@
         true,
         false
       ]
+    },
+    {
+      "id": "8bd42808-fe1f-4d06-bb48-f3fa1b9c3427",
+      "name": "entropy 2",
+      "link": "http://thesequel.com",
+      "image": "assets/img/unknown.png",
+      "desc": "Entropy two is the sequel to the ever-popular Entropy. Entropy was the award-winning Ludum Dare game developed by Sleepy Studios in just 72 hours with full multiplayer and dedicated server functionality. It was lit. This one will be fire.",
+      "tags": [
+        "ludum",
+        "dare",
+        "entropy",
+        "sleepy",
+        "studios",
+        "is",
+        "the",
+        "best"
+      ],
+      "platforms": [
+        true,
+        true,
+        true
+      ]
     }
   ],
   "tags": [],

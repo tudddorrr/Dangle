@@ -6,18 +6,18 @@ import * as _ from 'lodash';
 import { isSameDay, differenceInMinutes, getHours, isPast } from 'date-fns';
 
 @Component({
-  selector: 'app-view-event',
-  templateUrl: './view-event.component.html',
-  styleUrls: ['./view-event.component.scss']
+  selector: 'app-view-evenst',
+  templateUrl: './view-events.component.html',
+  styleUrls: ['./view-events.component.scss']
 })
-export class ViewEventComponent implements OnInit {
+export class ViewEventsComponent implements OnInit {
   deletionKey: string = '';
   viewDate: Date = new Date();
   cols: number = 12;
   times: string[] = ['0am', '2am', '4am', '6am', '8am', '10am', '12pm', '2pm', '4pm', '6pm', '8pm', '10pm'];
   events: any[] = [];
 
-  constructor(@Inject(MD_DIALOG_DATA) public data: any, public dialogRef: MdDialogRef<ViewEventComponent>, private api: ApiService, private snackbar: SnackbarService) { 
+  constructor(@Inject(MD_DIALOG_DATA) public data: any, public dialogRef: MdDialogRef<ViewEventsComponent>, private api: ApiService, private snackbar: SnackbarService) { 
     this.setEvents();
   }
 

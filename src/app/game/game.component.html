@@ -14,19 +14,18 @@
       <h1>{{game.name | titlecase}}</h1>
 
       <p><a [href]="game.link">{{game.link.split('//')[1]}}</a></p>
+
+      <p class="faded">{{game.desc}}</p>
       <br>
 
-      <p class="faded">{{game.desc | lowercase}}</p>
-      <br>
-
-      <h3>Available on: </h3>
+      <h3>Available on</h3>
       <span *ngFor="let platform of game.platforms; let i = index">
         <img *ngIf="platform" mdTooltip="{{platforms[i] | titlecase}}" 
         mdTooltipPosition="above" class="platform" [src]="'assets/img/' + platforms[i] + '.png'">
       </span>
      
       <h3>Tags</h3>
-      <p>{{game.tags.join(', ')}}</p>
+      <a href="#">{{game.tags.join(' ')}}</a>
     </div>
   </div>
 
@@ -34,7 +33,7 @@
 </div>
 
 <div id="calendar">
-  <h2 class="faded">{{date | date:'MMMM yyyy' | uppercase }}</h2>
+  <h2 class="faded">{{date | date:'MMMM yyyy' }}</h2>
   <mwl-calendar-month-view 
     [viewDate]="date" 
     [events]="events" 
