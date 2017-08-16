@@ -1,6 +1,6 @@
-<h2 *ngIf="!isToday()">{{events.length}} sessions on {{data.day.date | date:'longDate'}}</h2>
-<h2 *ngIf="isToday()">{{events.length}} sessions today</h2>
-<p>All dates are displayed in UTC</p>
+<h2 *ngIf="!isToday()">{{events.length}} {{getSessionText()}} on {{data.day.date | date:'longDate'}}</h2>
+<h2 *ngIf="isToday()">{{events.length}} {{getSessionText()}} today</h2>
+<p *ngIf="events.length>0">All dates are displayed in UTC</p>
 
 <md-dialog-content>
   <md-grid-list *ngIf="events.length>0" [cols]="cols" rows="1" rowHeight="2.5em">

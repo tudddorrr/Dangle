@@ -30,19 +30,12 @@ export class NewEventComponent implements OnInit {
 
   addEvent() {
     let start = _.cloneDeep(this.data.day.date);
-
-    console.log(this.startHour + ', ' + this.startMins);
-    console.log(this.addHours + ', ' + this.addMins);
-
     start.setHours(this.startHour);
     start.setMinutes(this.startMins);
 
     let end = _.cloneDeep(start);
     end = addHours(end, this.addHours);
     end = addMinutes(end, this.addMins);
-
-    console.log(start);
-    console.log(end);
 
     if(_.isUndefined(start) || _.isUndefined(end)) {
       let snackBarRef = this.snackbar.create('Invalid date time!');

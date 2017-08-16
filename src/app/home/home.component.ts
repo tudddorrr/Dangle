@@ -4,6 +4,7 @@ import { ApiService } from '../services/api/api.service';
 import { MdDialog } from '@angular/material';
 import { NewGameComponent } from '../new-game/new-game.component';
 import { Router } from '@angular/router';
+import { isToday } from 'date-fns';
 
 @Component({
   selector: 'app-home',
@@ -12,13 +13,20 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
   games: any[] = [];
+  events: any[] = [];
   search: string = '';
   maxTags: number = 3;
 
   constructor(private api: ApiService, public dialog: MdDialog, private router: Router) {
     this.api.get('games').subscribe(data => {
       this.games = data;
-    })
+      
+      for(let game of this.games) {
+        this.api.get('events?id=' + game.id).subscribe(data => {
+          game.events = data;
+        });
+      }
+    });
   }
 
   ngOnInit() { }
@@ -83,5 +91,20 @@ export class HomeComponent implements OnInit {
 
   clickGame(game: any) {
     this.router.navigateByUrl('/game/' + game.id, { skipLocationChange: true });
+  }
+
+  getEventCount(game: any): number {
+    let count: number = 0;
+    if(!game.events) return 0;
+    
+    for(let event of game.events) {
+      if(isToday(event.start)) count++;
+    }
+    return count;
+  }
+
+  getEventTooltip(game: any): string {
+    let count = this.getEventCount(game);
+    return (count > 1 || count === 0) ? count + ' sessions today' : count + ' session today';
   }
 }

@@ -86,4 +86,8 @@ export class ViewEventComponent implements OnInit {
   isPast(): boolean {
     return isPast(this.data.day.date) && !this.isToday();
   }
+
+  getSessionText(): string {
+    return (this.events.length > 1 || this.events.length === 0) ? 'sessions' : 'session';
+  }
 }

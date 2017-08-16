@@ -74,6 +74,11 @@ md-grid-tile {
     font-weight: bold;
 }
 
+a:any-link {
+    text-decoration: none;
+    color: mat-color($dangle-primary);
+}
+
 #app-title {
     margin: 0 auto;
 }
