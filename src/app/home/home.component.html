@@ -1,12 +1,12 @@
 <span>
   <md-toolbar color="primary">
-    <span id="app-title">Dangle</span>
+    <span id="app-title">Dangle <a class="beta" href="https://github.com/sekaru/Dangle/blob/master/README.md">beta</a></span>
   </md-toolbar>
 </span>
 
 <div id="searchbox">
   <p id="intro">
-    Dangle is a tool for finding and scheduling other players for smaller multiplayer games.
+    Dangle is a tool for finding and scheduling sessions with other players for small multiplayer games.
     <br>Find a game below or add your own to get started!
   </p>
 
@@ -14,10 +14,7 @@
     <input [(ngModel)]="search" mdInput placeholder="Search (by game or tags)..." />
   </md-input-container>
 
-  <button md-button>New</button>
-  <button md-button>Most Players</button>
-  <button md-button>Least Players</button>
-  <button md-button>Random</button>
+  <button *ngFor="let sort of sortOptions; let i = index" (click)="clickSortMode(i)" [disabled]="i===sortMode" md-button>{{sort}}</button>
 </div>
 
 <div *ngIf="games.length>0" id="cards">
@@ -39,4 +36,4 @@
   </md-card>
 </div>
 
-<button id="add" (click)="openDialog()" md-fab color="primary"><md-icon>add</md-icon></button>
+<button id="add" (click)="openDialog()" md-fab mdTooltip="Add new game" mdTooltipPosition="after" color="primary"><md-icon>add</md-icon></button>

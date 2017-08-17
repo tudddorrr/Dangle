@@ -30,11 +30,17 @@ body {
 
 md-card {
     $width: 320px;
+    $height: 240px;
 
     min-width: $width;
     max-width: $width;
     margin: 1em auto;
     background: mat-color($dangle-accent) !important;
+
+    img {
+        min-height: $height;
+        max-height: $height;
+    }
 }
 
 md-card-header {

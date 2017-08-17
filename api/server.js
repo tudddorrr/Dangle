@@ -13,6 +13,7 @@ app.use(bodyParser.json());
 
 var whitelist = [
   'http://localhost:4200',
+  'http://sleepystudios.net'
 ];
 
 var corsOptions = {

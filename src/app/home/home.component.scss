@@ -40,7 +40,7 @@ md-card {
     left: 0.5em;
     width: 100%;
     font-weight: bold;
-    color: #fff;
+    color: white;
 }
 
 .gameName {
@@ -50,4 +50,13 @@ md-card {
 
 .lastTag {
     cursor: pointer;
+}
+
+.beta {
+    color: white;
+    font-size: 0.75rem;
+}
+
+.beta:hover {
+    text-decoration: underline;
 }
