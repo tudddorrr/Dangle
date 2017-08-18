@@ -4,7 +4,7 @@ import { ApiService } from '../services/api/api.service';
 import { MdDialog } from '@angular/material';
 import { NewGameComponent } from '../new-game/new-game.component';
 import { Router } from '@angular/router';
-import { isToday } from 'date-fns';
+import { isSameWeek } from 'date-fns';
 
 @Component({
   selector: 'app-home',
@@ -117,14 +117,14 @@ export class HomeComponent implements OnInit {
     if(!game.events) return 0;
     
     for(let event of game.events) {
-      if(isToday(event.start) || isToday(event.end)) count++;
+      if(isSameWeek(new Date(), event.start) || isSameWeek(new Date(), event.end)) count++;
     }
     return count;
   }
 
   getEventTooltip(game: any): string {
     let count = this.getEventCount(game);
-    return (count > 1 || count === 0) ? count + ' sessions today' : count + ' session today';
+    return (count > 1 || count === 0) ? count + ' sessions this week' : count + ' session this week';
   }
 
   clickSortMode(index: number) {

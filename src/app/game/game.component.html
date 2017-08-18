@@ -25,7 +25,7 @@
       </span>
      
       <h3>Tags</h3>
-      <a href="#">{{game.tags.join(' ')}}</a>
+      <span *ngFor="let tag of game.tags; let i = index"><a class="tagLink" href="#">{{tag}}</a>{{i===game.tags.length-1 ? '' : ', '}}</span>
     </div>
   </div>
 
