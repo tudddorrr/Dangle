@@ -99,12 +99,16 @@ a:any-link {
 
 // Calendar styles
 .cal-month-view .cal-day-cell.cal-today {
-  background-color: #e4e4e4 !important; 
+    background-color: #e4e4e4 !important; 
 }
 
 .cal-month-view .cal-day-cell.cal-weekend .cal-day-number {
-  color: mat-color($dangle-primary) !important; }
+    color: mat-color($dangle-primary) !important; }
 
 .cal-month-view .cal-day-badge {
-  background-color: mat-color($dangle-primary) !important;;
+    background-color: mat-color($dangle-primary) !important;
+}
+
+.cal-month-view {
+    cursor: pointer;
 }

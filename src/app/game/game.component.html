@@ -33,7 +33,12 @@
 </div>
 
 <div id="calendar">
-  <h2 class="faded">{{date | date:'MMMM yyyy' }}</h2>
+  <div style="text-align: center">
+    <h2 class="faded">{{date | date:'MMMM yyyy' }}</h2>
+    <p class="faded">Click a day to view its sessions or to create a new one</p>
+  </div>
+  <br>
+
   <mwl-calendar-month-view 
     [viewDate]="date" 
     [events]="events" 

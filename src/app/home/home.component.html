@@ -31,7 +31,7 @@
 
     <md-chip-list id="chips">
       <md-chip color="primary" selected="true" [mdTooltip]="getEventTooltip(game)" mdTooltipPosition="above">{{getEventCount(game)}}</md-chip>
-      <md-chip *ngFor="let tag of getTags(game)" [ngClass]="isMoreTag(tag) ? 'lastTag' : ''" (click)="searchByTag(tag, game)" color="accent" selected="true">{{tag | lowercase}}</md-chip>
+      <md-chip *ngFor="let tag of getTags(game)" class="tag" (click)="searchByTag(tag, game)" color="accent" selected="true">{{tag | lowercase}}</md-chip>
     </md-chip-list>
   </md-card>
 </div>
