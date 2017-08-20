@@ -12,6 +12,7 @@ import * as _ from 'lodash';
 })
 export class NewEventComponent implements OnInit {
   name: string;
+  note: string = '';
 
   hours: number[] = Array.apply(null, {length: 24}).map(Number.call, Number);
   mins: number[] = [0, 15, 30, 45];
@@ -57,7 +58,8 @@ export class NewEventComponent implements OnInit {
       start: start,
       end: end,
       meta: {
-        gameid: this.data.gameid
+        gameid: this.data.gameid,
+        note: this.note
       }
     }).subscribe(data => {
       if(!data.success) {

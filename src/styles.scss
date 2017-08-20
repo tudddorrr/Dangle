@@ -34,7 +34,7 @@ md-card {
 
     min-width: $width;
     max-width: $width;
-    margin: 0.75em;
+    margin: 0.5em;
     background: mat-color($dangle-accent) !important;
 
     img {
@@ -95,6 +95,10 @@ a:any-link {
 
 .primary-text {
     color: mat-color($dangle-primary);
+}
+
+.faded {
+    color: #616161;
 }
 
 // Calendar styles

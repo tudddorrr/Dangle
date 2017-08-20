@@ -1,3 +1,11 @@
+# 1.0.3 (20/08/17)
+
+* Added tag suggestions/autocomplete
+* Twitter handles now work in the session view
+* Don't show tags/platforms subheadings if there aren't any
+* You can now (optionally) add notes to sessions
+* Temporarily removed the 'random' sort option
+
 # 1.0.2 (19/08/17)
 
 * New favicon

@@ -6,6 +6,12 @@
   </md-input-container>
   <md-divider></md-divider>
 
+  <h3 md-subheader>Note</h3>
+  <md-input-container>
+    <input [(ngModel)]="note" mdInput placeholder="Add a note about this session" />
+  </md-input-container>
+  <md-divider></md-divider>
+
   <h3 md-subheader>Starting at</h3>
   <md-select placeholder="hh" [(ngModel)]="startHour" required>
     <md-option *ngFor="let hour of hours" [value]="hour">

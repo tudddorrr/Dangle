@@ -14,9 +14,11 @@ import { isSameWeek } from 'date-fns';
 export class HomeComponent implements OnInit {
   games: any[] = [];
   events: any[] = [];
+  tags: any[] = [];
+
   search: string = '';
   maxTags: number = 3;
-  sortOptions: string[] = ['New', 'Most Players', 'Least Players', 'Random'];
+  sortOptions: string[] = ['New', 'Most Players', 'Least Players']; //'Random'
   sortMode: number = 0;
 
   constructor(private api: ApiService, public dialog: MdDialog, private router: Router) {
@@ -29,6 +31,10 @@ export class HomeComponent implements OnInit {
         });
       }
     });
+
+    this.api.get('tags').subscribe(data => {
+      this.tags = data;
+    })
   }
 
   ngOnInit() { }
@@ -87,7 +93,7 @@ export class HomeComponent implements OnInit {
   }
 
   openDialog() {
-    let dialogRef = this.dialog.open(NewGameComponent);
+    let dialogRef = this.dialog.open(NewGameComponent, { data: {tags: this.tags} });
     dialogRef.afterClosed().subscribe(result => {
       if (result && result.game) {
         this.games.push(result.game);

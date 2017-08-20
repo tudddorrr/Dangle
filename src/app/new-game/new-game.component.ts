@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { MdDialogRef } from '@angular/material';
+import { Component, OnInit, Inject } from '@angular/core';
+import { MdDialogRef, MD_DIALOG_DATA } from '@angular/material';
 import { ApiService } from '../services/api/api.service';
 import { SnackbarService } from '../services/snackbar/snackbar.service';
+import { FormControl } from '@angular/forms';
+import 'rxjs/add/operator/startWith';
 
 @Component({
   selector: 'app-new-game',
@@ -13,31 +15,37 @@ export class NewGameComponent implements OnInit {
   link: string;
   image: string;
   desc: string;
-  tagInput: string;
   tags: string[] = [];
   platforms: boolean[] = [false, false, false];
   platformNames: string[] = ['Windows', 'Mac', 'Linux'];
 
-  constructor(public dialogRef: MdDialogRef<NewGameComponent>, private api: ApiService, private snackbar: SnackbarService) { }
+  tagCtrl: FormControl = new FormControl();
+  filteredTags: any;
+
+  constructor(@Inject(MD_DIALOG_DATA) public data: any, public dialogRef: MdDialogRef<NewGameComponent>, private api: ApiService, private snackbar: SnackbarService) {
+    this.filteredTags = this.tagCtrl.valueChanges
+    .startWith(null)
+    .map(name => this.filterTags(name));
+  }
 
   ngOnInit() {
   }
 
-  addTag() {
-    if(this.tagInput.length<=0) return;
+  addTag(tagVal) {
+    if(tagVal.length<=0) return;
 
-    if(this.tags.indexOf(this.tagInput)!=-1) {
+    if(this.tags.indexOf(tagVal)!=-1) {
       this.snackbar.create('You\'ve already added this tag');
       return;
     }
 
-    if(this.tagInput.indexOf(' ')!=-1) {
+    if(tagVal.indexOf(' ')!=-1) {
       this.snackbar.create('Tags can only be one-word long');
       return;
     }
 
-    this.tags.push(this.tagInput.toLowerCase());
-    this.tagInput = '';
+    this.tags.push(tagVal.toLowerCase());
+    this.tagCtrl.setValue('');
   }
 
   removeTag(tag: string) {
@@ -65,5 +73,12 @@ export class NewGameComponent implements OnInit {
 
   cancel() {
     this.dialogRef.close();
+  }
+
+  filterTags(val: string): any[] {
+    if(!val || val.length<1) return [];
+
+    return val ? this.data.tags.filter(s => s.toLowerCase().indexOf(val.toLowerCase()) === 0)
+               : this.data.tags;
   }
 }

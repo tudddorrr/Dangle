@@ -39,6 +39,9 @@ export class GameComponent implements OnInit, OnDestroy {
             color: {
               primary: event.color.primary,
               secondary: event.color.secondary
+            },
+            meta: {
+              note: event.meta.note
             }
           }
         });

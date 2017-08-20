@@ -68,7 +68,11 @@ app.post('/game', function (req, res) {
   }
 
   // add its tags to the database
-  
+  _.forEach(req.body.tags, tag => {
+    if(_.indexOf(db.get('tags').value(), tag)===-1) {
+      db.get('tags').push(tag).write();
+    }
+  });
 
   // assign it a uuid
   var id = uuid.v4();
@@ -149,4 +153,9 @@ app.post('/event', function(req, res) {
   console.log("\nAdded new event: " + JSON.stringify(event));
 
   res.json({ success: true, event: event});
+});
+
+// getting tags
+app.get('/tags', function(req, res) {
+  return res.json(db.get('tags'));
 });

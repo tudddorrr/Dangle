@@ -26,8 +26,15 @@
 
   <h3 md-subheader>Tags</h3>
   <md-input-container>
-    <input mdInput [(ngModel)]="tagInput" (keyup.enter)="addTag()" placeholder="Press enter to add a tag" />
+    <input mdInput (keyup.enter)="addTag(tagCtrl.value)" placeholder="Press enter to add tags" [mdAutocomplete]="auto" [formControl]="tagCtrl" />
   </md-input-container>
+
+  <md-autocomplete #auto="mdAutocomplete">
+    <md-option *ngFor="let tag of filteredTags | async" (onSelectionChange)="addTag(tag)" [value]="tag">
+        {{tag}}
+    </md-option>
+  </md-autocomplete>
+
   <div id=tags>
     <md-chip-list>
       <md-chip *ngFor="let tag of tags" (click)="removeTag(tag)" color="accent" selected="true" class="removable">

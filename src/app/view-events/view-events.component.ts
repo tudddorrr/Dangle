@@ -90,4 +90,17 @@ export class ViewEventsComponent implements OnInit {
   getSessionText(): string {
     return (this.events.length > 1 || this.events.length === 0) ? 'sessions' : 'session';
   }
+
+  isTwitterHandle(title: string): boolean {
+    return title.startsWith('@');
+  }
+
+  getTwitterHandle(title: string): string {
+    return title.substring(1, title.length);
+  }
+
+  getNote(event: any): string {
+    if(!event.meta.note) return '';
+    return ': \'' + event.meta.note + '\'';
+  }
 }

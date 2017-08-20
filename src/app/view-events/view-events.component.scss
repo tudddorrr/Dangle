@@ -9,6 +9,11 @@ md-dialog-content {
     width: $width;
 }
 
+a:any-link {
+    color: white;
+    outline-style: none;
+}
+
 #buttonGroup {
     float: right;
 }
@@ -25,7 +30,7 @@ md-dialog-content {
     white-space: nowrap;
     overflow: hidden;
 
-    span {
+    span, a {
         display: inline-block;
         vertical-align: middle;
         line-height: normal;
