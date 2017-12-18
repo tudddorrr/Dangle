@@ -1,0 +1,31 @@
+html
+  head
+    title= 'Dangle Issue'
+    link(rel='stylesheet', href='/static/style.css')
+  body
+    div(id='container')
+      h1= 'Dangle Issue Tracker'
+      hr
+
+      h3(id='mode')= 'Type: ' + mode
+      h3(class=status==='Open' ? 'status-open' : 'status-closed')= 'Status: ' + status
+
+      if(comment)
+        p(class='header')= 'Comment'
+        p(class='section')= comment
+      br      
+
+      p(class='header')= 'Game'
+      p(class='section')= name
+      hr      
+
+      p(class='header')= 'Game ID'
+      p(class='section')= gameid
+      hr
+
+      p(class='header')= 'Category'
+      p(class='section')= category
+      hr      
+
+      p(class='header')= 'Description'
+      p(class='section')= desc

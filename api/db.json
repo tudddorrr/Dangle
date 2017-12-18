@@ -322,12 +322,52 @@
         true,
         false
       ]
+    },
+    {
+      "id": "6308584b-31d4-44a2-8df0-a787ed31ebec",
+      "name": "nsfwwithlinks",
+      "link": "http://link.com",
+      "image": "http://link.com/assets/img/",
+      "desc": "A really fun game but it's nsfw",
+      "tags": [
+        "op",
+        "yup"
+      ],
+      "platforms": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "communityLinks": [
+        {
+          "type": "Discord",
+          "link": "http://discord.com/disc"
+        },
+        {
+          "type": "Steam Group",
+          "link": "http://steam.com"
+        },
+        {
+          "type": "Forum",
+          "link": "http://forum.com"
+        },
+        {
+          "type": "Other",
+          "link": "http://wowee.com"
+        }
+      ],
+      "nsfw": true
     }
   ],
   "tags": [
     "what",
     "the",
-    "hell"
+    "hell",
+    "op",
+    "yup"
   ],
   "events": [
     {
@@ -606,6 +646,46 @@
         "gameid": "233c1734-9cec-4b8a-b157-be5d3e9d27c7",
         "note": "this is a note"
       }
+    },
+    {
+      "title": "test session",
+      "start": "2017-10-04T20:45:00.000Z",
+      "end": "2017-10-04T22:45:00.000Z",
+      "color": {
+        "primary": "#a009bf",
+        "secondary": "#a009bf"
+      },
+      "meta": {
+        "gameid": "233c1734-9cec-4b8a-b157-be5d3e9d27c7",
+        "note": "testtyrtestwtesty"
+      }
+    },
+    {
+      "title": "Test",
+      "start": "2018-01-03T04:45:00.000Z",
+      "end": "2018-01-03T08:00:00.000Z",
+      "color": {
+        "primary": "#f9f98b",
+        "secondary": "#f9f98b"
+      },
+      "meta": {
+        "gameid": "6308584b-31d4-44a2-8df0-a787ed31ebec",
+        "note": "testyman"
+      }
+    },
+    {
+      "title": "Rest",
+      "start": "2018-01-03T04:00:00.000Z",
+      "end": "2018-01-03T08:00:00.000Z",
+      "color": {
+        "primary": "#ffccd6",
+        "secondary": "#ffccd6"
+      },
+      "meta": {
+        "gameid": "6308584b-31d4-44a2-8df0-a787ed31ebec",
+        "note": "rest"
+      }
     }
-  ]
+  ],
+  "issues": []
 }

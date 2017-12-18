@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css?family=Rokkitt');
+
+body {
+  display: flex;
+  justify-content: center; 
+  margin: 3vw auto;
+  font-family: 'Oxygen', sans-serif;
+  color: #333;
+}
+
+#container {
+  padding: 3vw;
+  background: #f0f0f0;
+  box-shadow: 0 4px 4px rgba(0,0,0,0.1);
+  border-radius: 1em;
+}
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #e0e0e0;
+  margin: 1em 0;
+  padding: 0; 
+}
+
+.header {
+  font-weight: bold;
+}
+
+.section {
+  background: #f9f9f9;
+  padding: 1em;
+  border-radius: 1em;
+  font-size: 0.9rem;
+}
+
+.status-open {
+  color: rgb(92, 190, 92);
+}
+
+.status-closed {
+  color: rgb(231, 88, 88);
+}

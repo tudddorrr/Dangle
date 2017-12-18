@@ -1,4 +1,7 @@
+require('dotenv').config();
+
 var express = require('express');
+const path = require('path');
 var cors = require('cors');
 var bodyParser = require('body-parser');
 var low = require('lowdb');
@@ -7,13 +10,16 @@ const uuid = require('uuid');
 const isUrl = require('is-url');
 var _ = require('lodash');
 var randomColor = require('randomcolor');
+var bot = require('./bot');
 var app = express();
 
 app.use(bodyParser.json());
+app.set('view engine', 'pug');
+app.use("/static", express.static(path.join(__dirname, "public")));
 
 var whitelist = [
   'http://localhost:4200',
-  'http://sleepystudios.net'
+  'http://dangl.es'
 ];
 
 var corsOptions = {
@@ -25,14 +31,15 @@ var corsOptions = {
 }
 app.use(cors(corsOptions));
 
+
+const port = 4040;
 var server = app.listen(4040, "0.0.0.0", function () {
-  var port = server.address().port;
   console.log("Dangle server listening on port " + port);
 });
 
 // set defaults
 var db = low('db.json');
-db.defaults({ games: [], tags: [], events: [] })
+db.defaults({ games: [], tags: [], events: [], issues: [] })
   .write();
 
 // getting games
@@ -68,7 +75,7 @@ app.post('/game', function (req, res) {
   }
 
   // add its tags to the database
-  _.forEach(req.body.tags, tag => {
+  _.forEach(req.body.tags, function(tag) {
     if(_.indexOf(db.get('tags').value(), tag)===-1) {
       db.get('tags').push(tag).write();
     }
@@ -85,6 +92,8 @@ app.post('/game', function (req, res) {
     desc: req.body.desc,
     tags: req.body.tags,
     platforms: req.body.platforms,
+    communityLinks: req.body.communityLinks,
+    nsfw: req.body.nsfw
   }
 
   // add the game
@@ -158,4 +167,49 @@ app.post('/event', function(req, res) {
 // getting tags
 app.get('/tags', function(req, res) {
   return res.json(db.get('tags'));
+});
+
+// adding an issue
+app.post('/issue', function(req, res) {
+  if(!req.body.mode || !req.body.category || !req.body.desc || !req.body.gameid) {
+    return res.json({ success: false, err: 'err_missing_details', msg: 'You haven\'t filled in all the required fields' })    
+  }
+
+  // assign it a uuid
+  var id = uuid.v4();
+
+  var issue = {
+    id: id,
+    mode: req.body.mode,
+    category: req.body.category,
+    desc: req.body.desc,
+    gameid: req.body.gameid,
+    status: 'Open',
+    comment: ''
+  }
+
+  db.get('issues')
+    .push(issue)
+    .write();
+
+  // post a twitter status about it
+  bot.status(issue);
+
+  res.json({ success: true });    
+});
+
+// getting an issue
+app.get('/issue', function(req, res) {
+  var issue = db.get('issues')
+    .find({ id: req.query.id })
+    .value();
+
+  if(!issue) return res.status(404).send('That issue ID doesn\'t seem to exist');
+
+  var game = db.get('games')
+                   .find({id: issue.gameid})
+                   .value();
+  if(!game) return res.status(404).send('The game associated with this issue ID doesn\'t seem to exist');
+
+  res.render('issue', { mode: issue.mode, name: game.name, gameid: issue.gameid, category: issue.category, desc: issue.desc, status: issue.status, comment: issue.comment });
 });

@@ -10,7 +10,7 @@
   <div *ngFor="let event of events" [style.margin-left]="getMargin(event) + '%'" [style.width]="getWidth(event) + '%'"
     class="event" [style.background]="event.color.primary" mdTooltip="{{event.title}} from {{event.start | date:'jm'}} to {{event.end | date:'jm'}}{{getNote(event)}}" [mdTooltipPosition]="'after'">
     <span *ngIf="!isTwitterHandle(event.title)">{{event.title | titlecase}}</span>
-    <a *ngIf="isTwitterHandle(event.title)" [href]="'http://twitter.com/' + getTwitterHandle(event.title)">{{event.title | lowercase}}</a>
+    <a *ngIf="isTwitterHandle(event.title)" target="_blank" [href]="'http://twitter.com/' + getTwitterHandle(event.title)">{{event.title | lowercase}}</a>
   </div>
 
   <div *ngIf="events.length===0 && !isPast()">
