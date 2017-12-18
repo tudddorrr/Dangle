@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { MdDialogRef, MD_DIALOG_DATA } from '@angular/material';
+import { MdDialogRef, MD_DIALOG_DATA, DialogPosition } from '@angular/material';
 import { ApiService } from '../services/api/api.service';
 import { SnackbarService } from '../services/snackbar/snackbar.service';
 import { FormControl } from '@angular/forms';
@@ -16,16 +16,23 @@ export class NewGameComponent implements OnInit {
   image: string;
   desc: string;
   tags: string[] = [];
-  platforms: boolean[] = [false, false, false];
-  platformNames: string[] = ['Windows', 'Mac', 'Linux'];
+  platforms: boolean[] = [];
 
   tagCtrl: FormControl = new FormControl();
   filteredTags: any;
+
+  maxCommunityLinks: number = 4;
+  communityTypes: string[] = ['Discord', 'Steam Group', 'Forum', 'Subreddit', 'Other']
+  communityLinks: any[] = [{type: '', link: ''}];
+
+  nsfw: boolean;
 
   constructor(@Inject(MD_DIALOG_DATA) public data: any, public dialogRef: MdDialogRef<NewGameComponent>, private api: ApiService, private snackbar: SnackbarService) {
     this.filteredTags = this.tagCtrl.valueChanges
     .startWith(null)
     .map(name => this.filterTags(name));
+
+    for(let platform in api.platformNames) this.platforms.push(false);
   }
 
   ngOnInit() {
@@ -59,7 +66,9 @@ export class NewGameComponent implements OnInit {
       link: this.link,
       desc: this.desc,
       tags: this.tags,
-      platforms: this.platforms
+      platforms: this.platforms,
+      communityLinks: this.communityLinks,
+      nsfw: this.nsfw
     }
 
     this.api.post('game', gameData).subscribe(data => {
@@ -80,5 +89,9 @@ export class NewGameComponent implements OnInit {
 
     return val ? this.data.tags.filter(s => s.toLowerCase().indexOf(val.toLowerCase()) === 0)
                : this.data.tags;
+  }
+
+  addCommunityLink() {
+    this.communityLinks.push({type: '', link: ''});
   }
 }

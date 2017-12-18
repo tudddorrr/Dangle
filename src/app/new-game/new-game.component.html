@@ -31,20 +31,40 @@
 
   <md-autocomplete #auto="mdAutocomplete">
     <md-option *ngFor="let tag of filteredTags | async" (onSelectionChange)="addTag(tag)" [value]="tag">
-        {{tag}}
+      {{tag}}
     </md-option>
   </md-autocomplete>
 
   <div id=tags>
     <md-chip-list>
       <md-chip *ngFor="let tag of tags" (click)="removeTag(tag)" color="accent" selected="true" class="removable">
-        {{tag | lowercase}} 
+        {{tag | lowercase}}
       </md-chip>
     </md-chip-list>
   </div>
 
   <h3 md-subheader>Platforms</h3>
-  <md-checkbox *ngFor="let name of platformNames; let i = index" [checked]="platforms[i]" (change)="platforms[i] = !platforms[i]">{{name}}</md-checkbox>
+  <md-checkbox *ngFor="let name of api.platformNames; let i = index" [checked]="platforms[i]" (change)="platforms[i] = !platforms[i]">{{name}}</md-checkbox>
+  <md-divider></md-divider>
+  <br><br>
+
+  <h3 md-subheader>Community links</h3>
+  <div *ngFor="let communityLink of communityLinks">
+    <md-select placeholder="Community" [(ngModel)]="communityLink.type">
+      <md-option *ngFor="let community of communityTypes" [value]="community">
+        {{ community }}
+      </md-option>
+    </md-select>
+
+    <md-input-container class="community-link">
+      <input [(ngModel)]="communityLink.link" mdInput placeholder="Link" />
+    </md-input-container>
+  </div>
+  <button style="float: right" *ngIf="communityLinks.length<maxCommunityLinks" (click)="addCommunityLink()" md-button>+ New Link</button>
+  <md-divider></md-divider>
+  
+  <h3 md-subheader>Filtering</h3>
+  <md-checkbox [checked]="nsfw" (change)="nsfw = !nsfw">NSFW</md-checkbox>
   <md-divider></md-divider>
 </md-dialog-content>
 

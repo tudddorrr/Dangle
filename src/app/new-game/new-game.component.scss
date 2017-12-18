@@ -1,7 +1,12 @@
 $width: 30vw;
+$link-type-width: 8vw;
 
 md-input-container {
     min-width: $width;
+}
+
+.community-link {
+    min-width: $width - $link-type-width;
 }
 
 md-checkbox {

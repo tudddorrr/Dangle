@@ -1,0 +1,32 @@
+<h2>Report or Request Changes for {{data.game.name | titlecase}}</h2>
+
+<md-dialog-content>
+  <md-select placeholder="Mode" [(ngModel)]="mode" required>
+    <md-option *ngFor="let mode of ['Report', 'Edit']" [value]="mode">
+      {{ mode }}
+    </md-option>
+  </md-select>
+  <md-divider></md-divider>
+  <br><br>  
+  
+  <h3 md-subheader>Category</h3>
+  <br>
+  <md-select placeholder="Issue category" [(ngModel)]="category" required>
+    <md-option *ngFor="let category of ['Link', 'Image', 'Description', 'Tags', 'Events', 'Other']" [value]="category">
+      {{ category }}
+    </md-option>
+  </md-select>
+  <md-divider></md-divider>
+  <br><br>  
+
+  <h3 md-subheader>Details</h3>
+  <md-input-container>
+    <textarea [(ngModel)]="desc" mdInput placeholder="Describe the issue" required></textarea>
+  </md-input-container>
+  <md-divider></md-divider>
+</md-dialog-content>
+
+<div id="buttonGroup">
+  <button (click)="submit()" md-button>Submit</button>
+  <button (click)="cancel()" md-button>Cancel</button>
+</div>

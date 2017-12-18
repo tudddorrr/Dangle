@@ -6,6 +6,7 @@ import { ViewEventsComponent } from '../view-events/view-events.component';
 import { MdDialog } from '@angular/material';
 import { CalendarEvent } from 'angular-calendar';
 import { Subject } from 'rxjs/Subject';
+import { ReportEditComponent } from 'app/report-edit/report-edit.component';
 
 @Component({
   selector: 'app-game',
@@ -18,7 +19,7 @@ export class GameComponent implements OnInit, OnDestroy {
   game: any;
   date: Date = new Date();
   events: CalendarEvent<any>[] = [];
-  platforms: string[] = ['windows', 'mac', 'linux'];
+  showImage: boolean;
 
   constructor(private route: ActivatedRoute, private router: Router, private api: ApiService, public dialog: MdDialog) { }
 
@@ -28,6 +29,7 @@ export class GameComponent implements OnInit, OnDestroy {
 
       this.api.get('game?id=' + this.id).subscribe(data => {
         this.game = data;
+        this.showImage = !data.nsfw;
       });
 
       this.api.get('events?id=' + this.id).subscribe(data => {
@@ -94,10 +96,24 @@ export class GameComponent implements OnInit, OnDestroy {
         color: {
           primary: event.color.primary,
           secondary: event.color.secondary
+        },
+        meta: {
+          note: event.meta.note
         }
       }
     });
-    // console.log(event);
-    // this.refresh.next();
+  }
+
+  handleBannerError(event) {
+    event.target.src = '../../assets/img/unknown.png';
+  }
+
+  openReportEditDialog() {
+    let dialogRef = this.dialog.open(ReportEditComponent, { data: {game: this.game} });
+    dialogRef.afterClosed().subscribe(result => {
+      // if (result && result.game) {
+      //   this.games.push(result.game);
+      // }
+    });
   }
 }

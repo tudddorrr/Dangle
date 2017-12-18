@@ -16,6 +16,7 @@ import { HomeComponent } from './home/home.component';
 import { CalendarModule } from 'angular-calendar';
 import { NewEventComponent } from './new-event/new-event.component';
 import { ViewEventsComponent } from './view-events/view-events.component';
+import { ReportEditComponent } from './report-edit/report-edit.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -30,7 +31,8 @@ const routes: Routes = [
     GameComponent,
     HomeComponent,
     NewEventComponent,
-    ViewEventsComponent
+    ViewEventsComponent,
+    ReportEditComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +48,8 @@ const routes: Routes = [
   entryComponents: [
     NewGameComponent,
     NewEventComponent,
-    ViewEventsComponent
+    ViewEventsComponent,
+    ReportEditComponent
   ],
   providers: [ApiService, SnackbarService],
   bootstrap: [AppComponent]

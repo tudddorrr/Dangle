@@ -12,7 +12,7 @@
 // hue.
 $dangle-primary: mat-palette($mat-pink, 500, 50);
 $dangle-accent: mat-palette($mat-grey, 900, 200);
-$dangle-warn: mat-palette($mat-pink);
+$dangle-warn: mat-palette($mat-pink, 800);
 
 // Create the theme object (a Sass map containing all of the palettes).
 $dangle-theme: mat-light-theme($dangle-primary, $dangle-accent, $dangle-warn);
@@ -115,4 +115,22 @@ a:any-link {
 
 .cal-month-view {
     cursor: pointer;
+}
+
+.nsfw {
+    background: #fc2448;
+    padding: 4px;
+    color: white;
+    font-weight: bold;
+    border-radius: 4px;
+    font-size: 0.75rem;
+}
+
+.report-edit {
+  color: mat-color($dangle-primary);
+  cursor: pointer;
+}
+
+.report-edit:hover {
+  text-decoration: underline;
 }

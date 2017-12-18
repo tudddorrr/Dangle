@@ -1,6 +1,18 @@
 h1 {
-    font-size: 5rem;
+    font-size: 4rem;
     margin: 0;
+}
+
+h3:before {
+    content: "";
+    display: block;
+    width: 50%;
+    margin-bottom: 1em;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+a:hover {
+  text-decoration: underline;
 }
 
 #app-title {
@@ -46,11 +58,28 @@ h1 {
     clear: both;
 }
 
-.platform {
-    height: 32px;
+.platform, .communityIcon {
+    height: 24px;
 }
 
-.tagLink:hover {
-    text-decoration: underline;
+.communities {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
+.communityIcon {
+   margin-right: 4px;
+}
+
+.community {
+    font-size: 0.9rem;  
+    margin-right: 1em;
+    display: flex;
+    align-items: center;    
+}
+
+.blurred {
+    filter: brightness(0) opacity(0.2);
+    cursor: pointer;
+}

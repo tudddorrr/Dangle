@@ -4,9 +4,10 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class ApiService {
-  address: string = "http://35.176.93.182:4040"; 
-  // address: string = "http://localhost:4040";
+  // address: string = "http://35.176.93.182:4040"; 
+  address: string = "http://localhost:4040";
   deletesEnabled: boolean = false;
+  platformNames: string[] = ['Windows', 'Mac', 'Linux', 'Web', 'Android', 'iOS'];
 
   constructor(private http: Http) { }
 

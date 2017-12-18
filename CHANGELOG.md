@@ -1,3 +1,13 @@
+# 1.0.4 (18/12/17)
+
+* Fixed notes not loading properly
+* Twitter links open in a new tab
+* You can now (optionally) add up to four community links to a game
+* Added NSFW option
+* Added new platforms (web, android, iOS)
+* Fix for images that don't load
+* Can now report/request edits to games
+
 # 1.0.3 (20/08/17)
 
 * Added tag suggestions/autocomplete

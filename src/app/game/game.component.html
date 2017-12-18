@@ -5,23 +5,44 @@
 </span>
 
 <div *ngIf="game" id="container">
-  <div id="picture">
-    <img [src]="game.image">
+  <div id="picture">    
+    <img [ngClass]="showImage ? '': 'blurred'" 
+         [src]="game.image" 
+         (error)="handleBannerError($event)" 
+         [mdTooltip]="!showImage ? 'Click to show NSFW image' : ''" 
+         mdTooltipPosition="below"
+         (click)="showImage=true" >
+
+    <div><span class="report-edit" (click)="openReportEditDialog()">Report game or request changes</span></div>
   </div>
 
   <div id="info">
     <div id="info-wrapper">
-      <h1>{{game.name | titlecase}}</h1>
+      <div>
+        <span *ngIf="game.nsfw" class="nsfw">NSFW</span>
+        <h1>{{game.name | titlecase}}</h1>
+      </div>
 
       <p><a [href]="game.link">{{game.link.split('//')[1]}}</a></p>
 
       <p class="faded">{{game.desc}}</p>
       <br>
 
+      <div *ngIf="game.communityLinks && game.communityLinks.length>0">
+        <h3>Community links</h3>
+        <div class="communities">
+            <div *ngFor="let community of game.communityLinks" class="community">
+              <img mdTooltip="{{community.type}}" 
+              mdTooltipPosition="above" class="communityIcon" [src]="'assets/img/' + community.type + '.png'">
+              <a [href]="community.link" target="_blank">{{community.link}}</a>
+            </div>
+        </div>
+      </div>
+
       <h3 *ngIf="game.platforms.indexOf(true)!==-1">Available on</h3>
       <span *ngFor="let platform of game.platforms; let i = index">
-        <img *ngIf="platform" mdTooltip="{{platforms[i] | titlecase}}" 
-        mdTooltipPosition="above" class="platform" [src]="'assets/img/' + platforms[i] + '.png'">
+        <img *ngIf="platform" mdTooltip="{{api.platformNames[i]}}" 
+        mdTooltipPosition="above" class="platform" [src]="'assets/img/' + api.platformNames[i] + '.png'">
       </span>
      
       <h3 *ngIf="game.tags.length>0">Tags</h3>

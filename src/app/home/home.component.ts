@@ -21,6 +21,8 @@ export class HomeComponent implements OnInit {
   sortOptions: string[] = ['New', 'Most Players', 'Least Players']; //'Random'
   sortMode: number = 0;
 
+  unknownImage: string = '../../assets/img/unknown.png';
+
   constructor(private api: ApiService, public dialog: MdDialog, private router: Router) {
     this.api.get('games').subscribe(data => {
       this.games = data;
@@ -34,11 +36,12 @@ export class HomeComponent implements OnInit {
 
     this.api.get('tags').subscribe(data => {
       this.tags = data;
-    })
+    });
   }
 
   ngOnInit() { }
 
+  // todo observables
   getGames(): any[] {
     for (let game of this.games) {
       game.shown = true;
@@ -135,6 +138,9 @@ export class HomeComponent implements OnInit {
 
   clickSortMode(index: number) {
     this.sortMode = index;
-    console.log(this.sortMode);
+  }
+
+  handleBannerError(event) {
+    event.target.src = this.unknownImage;
   }
 }

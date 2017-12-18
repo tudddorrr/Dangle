@@ -12,6 +12,11 @@ md-card {
     line-height: 1.75rem;
     font-size: 1.25rem;
     color: gray;
+
+    @media only screen and (max-width: 768px) {
+        font-size: 0.75rem;
+        line-height: 1rem;
+    }
 }
 
 #add {
@@ -20,14 +25,25 @@ md-card {
     position: fixed;
 }
 
-#searchbox {
+#intro-container {
     text-align: center;
     padding: 1em;
 }
 
+#search-container {
+    display: flex;
+    justify-content: center;
+}
+
 #search {
-    display: block;
-    padding: 1em;
+    width: 90%;
+    padding-right: 1em;
+}
+
+#filters-btn {
+    width: 5%;
+    font-size: 0.75rem !important;
+    padding: 0;
 }
 
 #cards {
@@ -46,6 +62,37 @@ md-card {
     color: white;
 }
 
+#no-games {
+    text-align: center;
+    margin: 10vh 0;
+    color: lightgray;
+    font-size: 1.5rem;
+}
+
+#sort-container {
+    display: flex;
+
+    @media only screen and (max-width: 768px) {
+        justify-content: center;   
+
+        .mat-button {
+            font-size: 0.75rem !important;
+        }
+    }
+}
+
+#footer {
+    margin-bottom: 12px;
+    color: gray;
+    text-align: center;
+    font-size: 0.75rem;
+}
+
+#beta {
+    color: white;
+    font-size: 0.75rem;
+}
+
 .gameName {
     text-align: center;
     cursor: pointer;
@@ -53,11 +100,6 @@ md-card {
 
 .tag {
     cursor: pointer;
-}
-
-.beta {
-    color: white;
-    font-size: 0.75rem;
 }
 
 .beta:hover {

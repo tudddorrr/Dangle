@@ -10,7 +10,7 @@ I wanted to get something out there before the end of the current Ludum Dare whi
 
 ## Live demo
 
-http://sleepystudios.net/dangle
+http://dangl.es
 
 ## Built with
 
