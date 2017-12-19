@@ -23,19 +23,30 @@ export class HomeComponent implements OnInit {
 
   unknownImage: string = '../../assets/img/unknown.png';
 
-  constructor(private api: ApiService, public dialog: MdDialog, private router: Router) {
-    this.api.get('games').subscribe(data => {
-      this.games = data;
-      
-      for(let game of this.games) {
-        this.api.get('events?id=' + game.id).subscribe(data => {
-          game.events = data;
-        });
-      }
-    });
+  showNSFW: boolean;
 
-    this.api.get('tags').subscribe(data => {
-      this.tags = data;
+  constructor(private api: ApiService, public dialog: MdDialog, private router: Router) {
+    this.api.init().subscribe(data => {
+      this.api.getExternal(data + "/server?id=dangleapi").subscribe(data => {
+        // set the address
+        this.api.address = "http://" + data;
+      
+        // get games
+        this.api.get('games').subscribe(data => {
+          this.games = data;
+          
+          for(let game of this.games) {
+            this.api.get('events?id=' + game.id).subscribe(data => {
+              game.events = data;
+            });
+          }
+        });
+
+        // get tags
+        this.api.get('tags').subscribe(data => {
+          this.tags = data;
+        });
+      });
     });
   }
 
@@ -44,7 +55,7 @@ export class HomeComponent implements OnInit {
   // todo observables
   getGames(): any[] {
     for (let game of this.games) {
-      game.shown = true;
+      game.shown = game.nsfw ? this.showNSFW ? true : false : true;
     }
 
     if (this.search.length > 0) {
@@ -68,7 +79,7 @@ export class HomeComponent implements OnInit {
 
   sort(games: any[]): any[] {
     // new
-    if(this.sortMode===0) return games;
+    if(this.sortMode===0) return _.reverse(games);
 
     // random
     if(this.sortMode===3) return _.shuffle(games);

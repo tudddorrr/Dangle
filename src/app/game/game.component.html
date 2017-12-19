@@ -6,13 +6,7 @@
 
 <div *ngIf="game" id="container">
   <div id="picture">    
-    <img [ngClass]="showImage ? '': 'blurred'" 
-         [src]="game.image" 
-         (error)="handleBannerError($event)" 
-         [mdTooltip]="!showImage ? 'Click to show NSFW image' : ''" 
-         mdTooltipPosition="below"
-         (click)="showImage=true" >
-
+    <img [src]="game.image" (error)="handleBannerError($event)" >
     <div><span class="report-edit" (click)="openReportEditDialog()">Report game or request changes</span></div>
   </div>
 

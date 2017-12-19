@@ -1,12 +1,14 @@
-# 1.0.4 (18/12/17)
+# 1.0.4 (19/12/17)
 
 * Fixed notes not loading properly
 * Twitter links open in a new tab
 * You can now (optionally) add up to four community links to a game
-* Added NSFW option
+* Added NSFW option and filter
 * Added new platforms (web, android, iOS)
 * Fix for images that don't load
 * Can now report/request edits to games
+* Waker support
+* Animations
 
 # 1.0.3 (20/08/17)
 

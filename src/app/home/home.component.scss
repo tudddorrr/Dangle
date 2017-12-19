@@ -3,8 +3,19 @@ h2 {
 }
 
 md-card {
+    transition: all 0.2s;
+
     img {
+        transition: all 0.2s;      
         cursor: pointer;
+    }
+}
+
+md-card:hover {
+    transform: scale(1.05, 1.05);
+
+    img {
+        filter: brightness(1.1);      
     }
 }
 
@@ -23,6 +34,12 @@ md-card {
     bottom: 12px;
     left: 12px;
     position: fixed;
+    transition: all 0.2s;    
+}
+
+#add:hover {
+    transform: scale(1.1, 1.1);
+    filter: brightness(1.1);  
 }
 
 #intro-container {
@@ -32,6 +49,7 @@ md-card {
 
 #search-container {
     display: flex;
+    align-items: center;
     justify-content: center;
 }
 
@@ -41,9 +59,7 @@ md-card {
 }
 
 #filters-btn {
-    width: 5%;
-    font-size: 0.75rem !important;
-    padding: 0;
+    font-size: 0.75rem;
 }
 
 #cards {
@@ -104,4 +120,8 @@ md-card {
 
 .beta:hover {
     text-decoration: underline;
+}
+
+.num-events {
+    cursor: default;
 }

@@ -687,5 +687,15 @@
       }
     }
   ],
-  "issues": []
+  "issues": [
+    {
+      "id": "db6fea2f-fa23-400c-a14a-b565d2a26da0",
+      "mode": "Report",
+      "category": "Link",
+      "desc": "Fake, game doesn't even exist yet!",
+      "gameid": "0c3992f0-66b1-4fe1-a26b-2414f226c44f",
+      "status": "Open",
+      "comment": ""
+    }
+  ]
 }
