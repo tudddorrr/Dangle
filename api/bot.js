@@ -9,7 +9,7 @@ var T = new Twit({
 });
 
 exports.status = function(issue) {
-  T.post('statuses/update', { status: "@sekaru_ There's a new Dangle report! http://dangl.es/i/index.html?id=" + issue.id}, function(err, data, response) {
-    console.log('Posted a status for Issue ID ' + issue.id);
+  T.post('statuses/update', { status: "@sekaru_ @sleepystudios There's a new Dangle report! http://dangl.es/i/index.html?id=" + issue.id}, function(err, data, response) {
+    console.log('\nPosted a status for Issue ID ' + issue.id);
   });
 } 

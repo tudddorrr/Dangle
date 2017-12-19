@@ -64,6 +64,7 @@ export class NewGameComponent implements OnInit {
     let gameData: any = {
       name: this.name,
       link: this.link,
+      image: this.image,
       desc: this.desc,
       tags: this.tags,
       platforms: this.platforms,

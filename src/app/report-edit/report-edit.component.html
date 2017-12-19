@@ -12,7 +12,7 @@
   <h3 md-subheader>Category</h3>
   <br>
   <md-select placeholder="Issue category" [(ngModel)]="category" required>
-    <md-option *ngFor="let category of ['Link', 'Image', 'Description', 'Tags', 'Events', 'Other']" [value]="category">
+    <md-option *ngFor="let category of ['Name', 'Link', 'Image', 'Description', 'Tags', 'Events', 'Other']" [value]="category">
       {{ category }}
     </md-option>
   </md-select>

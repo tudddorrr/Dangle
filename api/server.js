@@ -84,6 +84,11 @@ app.post('/game', function (req, res) {
   // assign it a uuid
   var id = uuid.v4();
 
+  var communityLinks = [];
+  _.forEach(req.body.communityLinks, function(community) {
+    if(community.link.length>0) communityLinks.push(community);
+  });
+
   var game = {
     id: id,
     name: req.body.name.toLowerCase(),
@@ -92,7 +97,7 @@ app.post('/game', function (req, res) {
     desc: req.body.desc,
     tags: req.body.tags,
     platforms: req.body.platforms,
-    communityLinks: req.body.communityLinks,
+    communityLinks: communityLinks,
     nsfw: req.body.nsfw
   }
 
