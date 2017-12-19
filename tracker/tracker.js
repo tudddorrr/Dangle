@@ -16,8 +16,9 @@ var HttpClient = function() {
   }
 }
 
-// TODO Waker
 var client = new HttpClient();
-client.get('http://35.178.0.8:8081/server?id=dangleapi', function(response) {
-  window.location.replace('http://' + response + '/issue?id=' + getParam("id"));
+client.get('http://sleepystudios.net/waker.txt', function(response) {
+  client.get(response + '/server?id=dangleapi', function(response) {
+    window.location.replace('http://' + response + '/issue?id=' + getParam("id"));
+  });
 });

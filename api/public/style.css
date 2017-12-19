@@ -13,6 +13,7 @@ body {
   background: #f0f0f0;
   box-shadow: 0 4px 4px rgba(0,0,0,0.1);
   border-radius: 1em;
+  min-width: 30vw;
 }
 
 hr {
