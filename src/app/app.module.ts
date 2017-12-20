@@ -17,6 +17,8 @@ import { CalendarModule } from 'angular-calendar';
 import { NewEventComponent } from './new-event/new-event.component';
 import { ViewEventsComponent } from './view-events/view-events.component';
 import { ReportEditComponent } from './report-edit/report-edit.component';
+import { ChatComponent } from './chat/chat.component';
+import { PostComponent } from './chat/post/post.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -32,7 +34,9 @@ const routes: Routes = [
     HomeComponent,
     NewEventComponent,
     ViewEventsComponent,
-    ReportEditComponent
+    ReportEditComponent,
+    ChatComponent,
+    PostComponent
   ],
   imports: [
     BrowserModule,

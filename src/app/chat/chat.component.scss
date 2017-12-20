@@ -1,0 +1,85 @@
+@import '../../styles.scss';
+
+$width: 90vw;
+
+md-icon {
+  margin-right: 0.25em;
+  color: #666;
+}
+
+hr {
+  border-top: #e0e0e0;
+}
+
+#chat {
+  // text-align: center;
+  width: $width;
+  // margin: auto;
+}
+
+.thread-head {
+  display: flex;
+  align-items: center;  
+}
+
+.thread {
+  text-align: left;
+  padding: 1em;
+  background: #f9f9f9;
+  border-top: 1px solid #e0e0e0;
+  border-bottom: 3px solid mat-color($dangle-primary);
+  transition: all 0.2s;
+  margin-bottom: 1em;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+}
+
+.thread:hover {
+  background: #f2f2f2;
+}
+
+.thread-info {
+  color: mat-color($dangle-primary);
+  display: flex;
+  align-items: center;  
+
+  md-icon {
+    color: mat-color($dangle-primary);
+  }
+}
+
+.post {
+  @extend .thread;
+  margin-left: 5%;
+  border-bottom: 2px solid mat-color($dangle-primary);    
+}
+
+.post-info {
+  display: flex;
+  align-items: center;
+}
+
+.post-text {
+  background: #e0e0e0;
+  padding: 1em;
+}
+
+.reply {
+  @extend .post;
+  margin-left: 30%;
+  border-bottom: none;
+}
+
+.reply-comment {
+  min-width: 80%;
+  max-width: 80%;
+}
+
+.form-area {
+  display: flex;
+  flex-flow: row wrap; 
+  align-items: center;
+
+  button {
+    height: 50%;
+  }
+}

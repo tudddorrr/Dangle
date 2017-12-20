@@ -1,3 +1,7 @@
+# 1.0.5 (XX/12/17) 
+
+* Added discussion boards to game pages
+
 # 1.0.4 (19/12/17)
 
 * Fixed notes not loading properly

@@ -12,7 +12,7 @@ h3:before {
 }
 
 a:hover {
-  text-decoration: underline;
+    text-decoration: underline;
 }
 
 #app-title {
@@ -52,6 +52,17 @@ a:hover {
     width: 90vw;
     padding: 2em;
     margin: auto;
+}
+
+@media(max-width: 768px) {
+    #picture {
+        width: 100%;
+        margin-bottom: 2em;
+    }
+    
+    #info-wrapper {
+        padding: 0;
+    }
 }
 
 .clear {

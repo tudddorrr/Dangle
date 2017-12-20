@@ -1,0 +1,17 @@
+@import '../chat.component.scss';
+
+.post {
+  @extend .thread;
+  margin-left: 5%;
+  border-bottom: 2px solid mat-color($dangle-primary);    
+}
+
+.post-info {
+  display: flex;
+  align-items: center;
+}
+
+.post-text {
+  background: #e0e0e0;
+  padding: 1em;
+}

@@ -98,7 +98,25 @@ a:any-link {
 }
 
 .faded {
-    color: #616161;
+    color: #666;
+}
+
+.nsfw {
+  background: #fc2448;
+  padding: 4px;
+  color: white;
+  font-weight: bold;
+  border-radius: 4px;
+  font-size: 0.75rem;
+}
+
+.report-edit {
+  color: mat-color($dangle-primary);
+  cursor: pointer;
+}
+
+.report-edit:hover {
+  text-decoration: underline;
 }
 
 // Calendar styles
@@ -117,20 +135,4 @@ a:any-link {
     cursor: pointer;
 }
 
-.nsfw {
-    background: #fc2448;
-    padding: 4px;
-    color: white;
-    font-weight: bold;
-    border-radius: 4px;
-    font-size: 0.75rem;
-}
-
-.report-edit {
-  color: mat-color($dangle-primary);
-  cursor: pointer;
-}
-
-.report-edit:hover {
-  text-decoration: underline;
-}
+// chat styles
