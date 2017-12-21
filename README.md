@@ -1,9 +1,9 @@
 # Dangle
 
-Dangle is a tool for finding and scheduling other players for smaller multiplayer games. Choose when and how long you'll be online for others to see and schedule their own sessions around.
+Dangle is a tool for finding and scheduling other players for smaller multiplayer games. Choose when and how long you'll be online for others to see and schedule their own sessions around and use the discussion system to talk about games on their pages
 
 ## Changelog
-[Right here](/CHANGELOG.md).
+[Right here](/CHANGELOG.md)
 
 ## Live demo
 
@@ -13,7 +13,7 @@ http://dangl.es
 
 Front-end: Angular4, Angular Material
 
-Back-end: Node, Express, [LowDB](https://github.com/typicode/lowdb), [Waker](https://github.com/sekaru/Waker)
+Back-end: Node, Express, [LowDB](https://github.com/typicode/lowdb), Pug, [Waker](https://github.com/sekaru/Waker)
 
 ## Other libraries
 [Image-Resolver](https://www.npmjs.com/package/image-resolver), [randomColor](https://www.npmjs.com/package/randomcolor)
