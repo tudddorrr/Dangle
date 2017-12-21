@@ -63,7 +63,7 @@
   <br>
   <div>
     <h2>{{threads.length}} {{threads.length==1 ? "Discussion" : "Discussions"}}</h2>   
-    <p class="faded">Click a thread to reply and/or show replies</p>    
+    <p class="faded">{{threads.length!=0 ? "Click a thread to reply and/or show replies" : "No discussions yet, why not start one?"}}</p>    
     <span class="primary-text" (click)="toggleNewThread()">
       <button md-button>+ New Thread</button>
     </span>    
