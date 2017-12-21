@@ -1,0 +1,28 @@
+@import '../chat.component.scss';
+
+$margin: 30%;
+
+.short-input {
+  min-width: 40%;
+  max-width: 40%;
+}
+
+.new-thread {
+  margin-top: 1em;
+  margin-left: 0 !important;
+  margin-right: $margin;
+}
+
+.new-reply {
+  margin-left: $margin;
+}
+
+.reply-comment {
+  min-width: 80%;
+  max-width: 80%;
+}
+
+.button-group {
+  display: flex;
+  justify-content: flex-end;
+}

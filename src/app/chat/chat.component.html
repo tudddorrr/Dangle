@@ -1,56 +1,29 @@
 <div id="chat">
   <br>
-  <div>
-    <h2>Discussions</h2>   
-  </div>
 
-  <span class="thread-info"><md-icon>add</md-icon>New Thread</span>
-  <br>
-
-  <div class="thread">
-    <h3 class="thread-head"><md-icon>chat_bubble_outline</md-icon>Thread</h3>      
+  <div class="thread" style="cursor: pointer" (click)="showPosts = !showPosts">
+    <h3 class="thread-head">
+      <md-chip color="primary" selected="true">
+        <div class="num-replies">
+          <span>{{thread.posts.length}} {{thread.posts.length!=1 ? "Replies" : "Reply"}}</span>
+          <md-icon>{{showPosts ? "visibility" : "visibility_off"}}</md-icon>
+        </div>
+      </md-chip>           
+      {{thread.title}}
+    </h3>     
     <p class="faded post-info">
       <md-icon>face</md-icon>
-      <span>Username at 12:22pm</span>
+      <span>{{thread.name}} on {{thread.date | date: 'medium'}}</span>
     </p>       
     <hr>
-    <p class="post-text">This is a thread description bit</p>
-    <p class="thread-info">5 comments</p>
-  </div>
-
-  <app-post></app-post>
-  <app-post></app-post>
-
-  <div class="reply">
-    <h3 class="thread-head"><md-icon>reply</md-icon>Reply</h3>    
-    
-    <md-input-container>
-      <input [(ngModel)]="name" mdInput placeholder="Your name" required />
-    </md-input-container>
-    <br>
-
-    <div class="form-area">
-        <md-input-container class="reply-comment">      
-          <textarea [(ngModel)]="comment" mdInput placeholder="Your comment" required></textarea>
-        </md-input-container>
-        
-      <button (click)="addComment()" md-button>Submit</button>      
+    <p class="post-text">{{thread.text}}</p>
+    <div class="thread-info">
+      <button class="thread-info" (click)="report(true, thread.text)" md-button>Report</button>      
     </div>
   </div>
 
-  <!-- <div class="thread">
-    <h3>2. Thread</h3>
-    <p>This is a thread description bit</p>
-    <p class="thread-info">5 comments</p>    
+  <div *ngIf="showPosts">
+    <app-post *ngFor="let post of thread.posts" [post]="post" (report)="report(false, $event.text)"></app-post>
+    <app-reply [mode]="1" (submit)="addPost($event)"></app-reply>      
   </div>
-  <div class="thread">
-    <h3>3. Thread</h3>
-    <p>This is a thread description bit</p>
-    <p class="thread-info">5 comments</p>    
-  </div>
-  <div class="thread">
-    <h3>4. Thread</h3>
-    <p>This is a thread description bit</p>
-    <p class="thread-info">5 comments</p>    
-  </div> -->
 </div>

@@ -1,4 +1,4 @@
-# 1.0.5 (XX/12/17) 
+# 1.0.5 (21/12/17) 
 
 * Added discussion boards to game pages
 

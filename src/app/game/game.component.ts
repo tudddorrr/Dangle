@@ -7,6 +7,8 @@ import { MdDialog } from '@angular/material';
 import { CalendarEvent } from 'angular-calendar';
 import { Subject } from 'rxjs/Subject';
 import { ReportEditComponent } from 'app/report-edit/report-edit.component';
+import { Thread } from './chat';
+import { SnackbarService } from '../services/snackbar/snackbar.service';
 
 @Component({
   selector: 'app-game',
@@ -19,17 +21,17 @@ export class GameComponent implements OnInit, OnDestroy {
   game: any;
   date: Date = new Date();
   events: CalendarEvent<any>[] = [];
-  showImage: boolean;
-
-  constructor(private route: ActivatedRoute, private router: Router, private api: ApiService, public dialog: MdDialog) { }
+  threads: Thread[] = [];
+  newThread: boolean;
+ 
+  constructor(private route: ActivatedRoute, private router: Router, private api: ApiService, public dialog: MdDialog, private snackbar: SnackbarService) { }
 
   ngOnInit() {
     this.paramSub = this.route.params.subscribe(params => {
       this.id = params['id'];
 
-      this.api.get('game?id=' + this.id).subscribe(data => {
+      this.api.get('game?id=' + this.id).subscribe(data => {  
         this.game = data;
-        this.showImage = !data.nsfw;
       });
 
       this.api.get('events?id=' + this.id).subscribe(data => {
@@ -50,6 +52,10 @@ export class GameComponent implements OnInit, OnDestroy {
       }, err => {
         console.log(err);
       });
+
+      this.api.get('threads?id=' + this.id).subscribe(data => {
+        this.threads = data.threads;
+      })
     });
   }
 
@@ -110,10 +116,26 @@ export class GameComponent implements OnInit, OnDestroy {
 
   openReportEditDialog() {
     let dialogRef = this.dialog.open(ReportEditComponent, { data: {game: this.game} });
-    dialogRef.afterClosed().subscribe(result => {
-      // if (result && result.game) {
-      //   this.games.push(result.game);
-      // }
+  }
+
+  toggleNewThread() {
+    this.newThread = !this.newThread;
+  }
+
+  addNewThread(event) {
+    this.api.post('thread', {
+      title: event.title,
+      name: event.name,
+      date: new Date(),
+      text: event.text,
+      gameid: this.game.id
+    }).subscribe(data => {
+      if(data.success) {
+        this.threads.unshift(data.thread);
+        this.toggleNewThread();        
+      } else {
+        this.snackbar.create(data.msg);
+      }
     });
   }
 }

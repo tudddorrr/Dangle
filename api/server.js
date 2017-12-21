@@ -91,7 +91,7 @@ app.post('/game', function (req, res) {
 
   var game = {
     id: id,
-    name: req.body.name.toLowerCase(),
+    name: req.body.name,
     link: req.body.link.toLowerCase(),
     image: req.body.image || 'assets/img/unknown.png',
     desc: req.body.desc,
@@ -145,7 +145,7 @@ app.get('/events', function(req, res) {
 // adding an event
 app.post('/event', function(req, res) {
   if (!req.body.title || !req.body.start || !req.body.end) {
-    return res.json({ success: false, err: 'err_missing_details', msg: 'You haven\'t filled in all the required fields' })
+    return res.json({ success: false, err: 'err_missing_details', msg: 'You haven\'t filled in all the required fields' });
   }
 
   var colour = randomColor();
@@ -177,7 +177,7 @@ app.get('/tags', function(req, res) {
 // adding an issue
 app.post('/issue', function(req, res) {
   if(!req.body.mode || !req.body.category || !req.body.desc || !req.body.gameid) {
-    return res.json({ success: false, err: 'err_missing_details', msg: 'You haven\'t filled in all the required fields' })    
+    return res.json({ success: false, err: 'err_missing_details', msg: 'You haven\'t filled in all the required fields' });    
   }
 
   // assign it a uuid
@@ -216,5 +216,93 @@ app.get('/issue', function(req, res) {
                    .value();
   if(!game) return res.status(404).send('The game associated with this issue ID doesn\'t seem to exist');
 
-  res.render('issue', { mode: issue.mode, name: game.name, gameid: issue.gameid, category: issue.category, desc: issue.desc, status: issue.status, comment: issue.comment });
+  res.render('issue', {
+    mode: issue.mode, 
+    name: game.name, 
+    gameid: issue.gameid, 
+    category: issue.category, 
+    desc: issue.desc, 
+    status: issue.status, 
+    comment: issue.comment 
+  });
+});
+
+// get threads
+app.get('/threads', function(req, res) {
+  if(!req.query.id) return res.json({success: false, err: 'err_missing_id', msg: 'You need to specify a game ID'});
+
+  var game = db.get('games').find({id: req.query.id}).value();
+  if(!game) return res.json({success: false, err: 'err_game_doesnt_exist', msg: 'Game doesn\'t exist'});
+
+  var threads = db.get('threads').filter({gameid: game.id}).value();
+  threads = threads.sort(function(a, b) {
+    var dateA = a.posts.length > 0 ? new Date(a.posts[a.posts.length-1].date) : new Date(a.date);
+    var dateB = b.posts.length > 0 ? new Date(b.posts[b.posts.length-1].date) : new Date(b.date);
+
+    return dateA.getTime() === dateB.getTime() ? 0 : dateB > dateA ? 1 : -1;
+  });
+
+  return res.json({success: true, threads: threads || []});
+});
+
+// new thread
+app.post('/thread', function(req, res) {
+  if(!req.body.title || !req.body.name || !req.body.text || !req.body.date || !req.body.gameid) {
+    return res.json({ success: false, err: 'err_missing_details', msg: 'You haven\'t filled in all the required fields' }); 
+  }
+
+  var duplicate = db.get('threads').find({gameid: req.body.gameid, title: req.body.title}).value();
+  if(duplicate) return res.json({sucess: false, err: 'err_duplicate', msg: 'This thread already seems to exist'});
+
+  // assign it a uuid
+  var id = uuid.v4();
+
+  var thread = {
+    id: id,
+    title: req.body.title,
+    name: req.body.name,
+    text: req.body.text,
+    date: req.body.date,
+    gameid: req.body.gameid,
+    posts: []
+  }
+
+  db.get('threads')
+    .push(thread)
+    .write();
+
+  return res.json({success: true, thread: thread});
+});
+
+// new post
+app.post('/post', function(req, res) {
+  if(!req.body.threadid || !req.body.name || !req.body.text || !req.body.date) {
+    return res.json({ success: false, err: 'err_missing_details', msg: 'You haven\'t filled in all the required fields' }); 
+  }
+
+  var thread = db.get('threads').find({id: req.body.threadid}).value();
+  if(!thread) return res.json({success: false, err: 'err_no_thread', msg: 'The specified thread doesn\'t seem to exist'})
+
+  var duplicate = _.find(thread.posts, {text: req.body.text});
+  if(duplicate) return res.json({sucess: false, err: 'err_duplicate', msg: 'This post already seems to exist'});
+
+  // assign it a uuid
+  var id = uuid.v4();
+
+  var post = {
+    id: id,
+    name: req.body.name,
+    text: req.body.text,
+    date: req.body.date,
+  }
+
+  var posts = thread.posts;
+  posts.push(post);
+
+  db.get('threads')
+    .find({id: req.body.threadid})
+    .assign({posts: posts})
+    .write();
+
+  return res.json({success: true, post: post});
 });

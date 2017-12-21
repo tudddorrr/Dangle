@@ -1,9 +1,9 @@
 <div class="post">
   <p class="faded post-info">
     <md-icon>face</md-icon>
-    <span>Username at 12:22pm</span>
+    <span>{{post.name}} on {{post.date | date: 'medium'}}</span>
   </p>    
   <hr>    
-  <p class="post-text">This is a reply</p>
-  <span class="thread-info">Report</span>              
+  <p class="post-text">{{post.text}}</p>
+  <button class="thread-info" (click)="onReport()" md-button>Report</button>             
 </div>

@@ -19,6 +19,7 @@ import { ViewEventsComponent } from './view-events/view-events.component';
 import { ReportEditComponent } from './report-edit/report-edit.component';
 import { ChatComponent } from './chat/chat.component';
 import { PostComponent } from './chat/post/post.component';
+import { ReplyComponent } from './chat/reply/reply.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -36,7 +37,8 @@ const routes: Routes = [
     ViewEventsComponent,
     ReportEditComponent,
     ChatComponent,
-    PostComponent
+    PostComponent,
+    ReplyComponent
   ],
   imports: [
     BrowserModule,

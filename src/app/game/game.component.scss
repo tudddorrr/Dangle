@@ -94,3 +94,14 @@ a:hover {
     filter: brightness(0) opacity(0.2);
     cursor: pointer;
 }
+
+.new-thread {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: all 0.2s;
+}
+
+.new-thread > span:hover {
+    text-decoration: underline;
+}

@@ -1,0 +1,27 @@
+
+
+<div class="reply" [ngClass]="mode==0? 'new-thread' : 'new-reply'">
+  <h3 class="thread-head"><md-icon>{{mode==0? "chat_bubble" : "reply"}}</md-icon>{{mode==0 ? "New Thread" : "Reply"}}</h3>    
+  
+  <div *ngIf="mode==0">
+    <md-input-container class="short-input">
+      <input [(ngModel)]="title" mdInput placeholder="Title" required />
+    </md-input-container>
+    <br>
+  </div>
+
+  <md-input-container class="short-input">
+    <input [(ngModel)]="name" mdInput placeholder="Your name" required />
+  </md-input-container>
+  <br>
+
+  <md-input-container class="reply-comment">      
+    <textarea [(ngModel)]="text" mdInput placeholder="Your comment" required></textarea>
+  </md-input-container>
+  <br>
+
+  <div class="button-group">
+    <button md-button (click)="addReply()">Submit</button>    
+    <button *ngIf="mode==0" md-button (click)="onCancel()">Cancel</button>            
+  </div>
+</div>

@@ -20,7 +20,7 @@ export class ReportEditComponent implements OnInit {
 
   submit() {
     if(!this.category || !this.desc) {
-      this.snackbar.create("You haven't filled out all the required fields");
+      this.snackbar.create("You haven't filled in all the required fields");
       return;
     }
 

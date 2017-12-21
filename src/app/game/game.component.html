@@ -60,5 +60,16 @@
     (dayClicked)="dayClicked($event.day)">
   </mwl-calendar-month-view>
 
-  <app-chat></app-chat>  
+  <br>
+  <div>
+    <h2>{{threads.length}} {{threads.length==1 ? "Discussion" : "Discussions"}}</h2>   
+    <p class="faded">Click a thread to reply and/or show replies</p>    
+    <span class="primary-text" (click)="toggleNewThread()">
+      <button md-button>+ New Thread</button>
+    </span>    
+    <div *ngIf="newThread">
+      <app-reply [mode]="0" (submit)="addNewThread($event)" (cancel)="toggleNewThread()"></app-reply>
+    </div>
+  </div>
+  <app-chat *ngFor="let thread of threads; let i = index" [thread]="thread"></app-chat>
 </div>
