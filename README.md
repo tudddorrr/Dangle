@@ -2,6 +2,8 @@
 
 Dangle is a tool for finding and scheduling other players for smaller multiplayer games. Choose when and how long you'll be online for others to see and schedule their own sessions around and use the discussion system to talk about games on their pages
 
+<img src="https://i.imgur.com/W7GImSZ.jpg" width="800">
+
 ## Changelog
 [Right here](/CHANGELOG.md)
 
